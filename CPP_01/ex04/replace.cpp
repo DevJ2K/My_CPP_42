@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 14:57:19 by tajavon           #+#    #+#             */
-/*   Updated: 2023/12/30 17:27:31 by tajavon          ###   ########.fr       */
+/*   Updated: 2023/12/30 17:45:56 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,11 @@ int	replace( char *filename, char *to_replace, char *replace_by )
 {
 	std::ifstream init_file(filename);
 
-	(void)to_replace;
-	(void)replace_by;
+	// Si l'ouverture du fichier a echoue
 	if (init_file.is_open() == false)
 		return (-1);
 
-
+	// Pour recuperer le contenu du fichier
 	std::string buffer;
 	std::string	filecontent;
 	while (std::getline(init_file, buffer))
@@ -57,12 +56,8 @@ int	replace( char *filename, char *to_replace, char *replace_by )
 			filecontent.append("\n");
 	}
 
-
-
-	std::cout << BHRED << filecontent << RESET << std::endl;
-
+	// Replace
 	size_t i = 0;
-
 	while (filecontent.c_str()[i])
 	{
 		if (find_in_string(&filecontent.c_str()[i], to_replace))
@@ -70,6 +65,11 @@ int	replace( char *filename, char *to_replace, char *replace_by )
 			int	j = 0;
 			while (to_replace[j])
 				j++;
+			if (j == 0)
+			{
+				i++;
+				continue;
+			}
 			filecontent.erase(i, j);
 
 			filecontent.insert(i, replace_by);
@@ -77,17 +77,13 @@ int	replace( char *filename, char *to_replace, char *replace_by )
 			int	k = 0;
 			while (replace_by[k])
 				k++;
-			i += k + 1;
+			i += k;
 		}
 		else
 			i++;
 	}
-
-	std::cout << std::endl << BHCYAN << filecontent << RESET << std::endl;
-
-
 	init_file.close();
 	if (create_replace_file(filename, filecontent) == -1)
-		return (-1);
+		return (-2);
 	return (0);
 }
