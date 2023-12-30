@@ -6,18 +6,23 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 18:20:28 by tajavon           #+#    #+#             */
-/*   Updated: 2023/12/29 18:29:33 by tajavon          ###   ########.fr       */
+/*   Updated: 2023/12/30 11:24:16 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include "Colors.hpp"
 
-Weapon::Weapon(/* args */)
+Weapon::Weapon( std::string type ) : _type(type)
 {
+	std::cout << BHWHITE << "New Weapon create : " << RESET
+	<< BHCYAN << type << RESET << std::endl;
 }
 
 Weapon::~Weapon()
 {
+	std::cout << BHRED << this->_type << RESET << BRED
+	<< " was destroy !" << RESET << std::endl;
 }
 
 void	Weapon::setType( std::string type )
