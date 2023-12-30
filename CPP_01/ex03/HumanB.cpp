@@ -6,14 +6,14 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 18:23:22 by tajavon           #+#    #+#             */
-/*   Updated: 2023/12/30 13:57:45 by tajavon          ###   ########.fr       */
+/*   Updated: 2023/12/30 14:42:47 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 #include "Colors.hpp"
 
-HumanB::HumanB( std::string name ) : _name(name)
+HumanB::HumanB( std::string name ) : _name(name), _weapon(NULL)
 {
 	std::cout << "New human is born, welcome "
 	<< BHGREEN << name << RESET << std::endl;
@@ -29,10 +29,10 @@ void	HumanB::attack( void )
 {
 	std::cout << BHGREEN << this->_name << RESET
 	<< BHWHITE << " attacks with ";
-	if ((this->_weapon) == NULL)
+	if (this->_weapon == NULL)
 		std::cout << "his " << RESET << BHRED << "hands" << RESET;
 	else
-	std::cout << "their " << RESET << BHRED << (*this->_weapon).getType() << RESET;
+		std::cout << "their " << RESET << BHRED << (*this->_weapon).getType() << RESET;
 	std::cout << std::endl;
 }
 
