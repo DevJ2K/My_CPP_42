@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 19:44:29 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/01 02:02:46 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/01 14:34:52 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
 private:
 	int	_raw;
-	const int	_bitsShift;
+	static const int	_bitsShift = 8;
 public:
 	Fixed(); // Constructeur par défaut
 	Fixed( Fixed const & src ); // Constructeur de recopie

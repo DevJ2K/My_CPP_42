@@ -6,19 +6,31 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 19:44:32 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/01 02:11:46 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/01 14:41:53 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _raw(0), _bitsShift(8)
+Fixed::Fixed() : _raw(0)
 {
 	std::cout << BHGREEN << "Default constructor called" << RESET << std::endl;
 	return ;
 }
 
-Fixed::Fixed( Fixed const & src ) : _bitsShift(8)
+Fixed::Fixed( int const n ) : _raw( n << _bitsShift )
+{
+	std::cout << BHBLUE << "Int constructor called" << RESET << std::endl;
+	return ;
+}
+
+Fixed::Fixed( float const f ) : _raw( roundf(f * (1 << _bitsShift)) )
+{
+	std::cout << BHBLUE << "Float constructor called" << RESET << std::endl;
+	return ;
+}
+
+Fixed::Fixed( Fixed const & src )
 {
 	std::cout << BHYELLOW << "Copy constructor called" << RESET << std::endl;
 	*this = src;
@@ -39,11 +51,11 @@ Fixed	&Fixed::operator=(Fixed const & rhs)
 
 float	Fixed::toFloat( void ) const
 {
-
+	return ( (float)this->_raw / (1 << Fixed::_bitsShift) );
 }
 int		Fixed::toInt( void ) const
 {
-	
+	return ( this->_raw >> Fixed::_bitsShift );
 }
 
 int	Fixed::getRawBits( void ) const
@@ -56,4 +68,10 @@ void	Fixed::setRawBits( int const raw )
 {
 	std::cout << BCYAN << "setRawBits member function called" << RESET << std::endl;
 	_raw = raw;
+}
+
+std::ostream & operator<<(std::ostream & o, Fixed const & rhs)
+{
+	o << rhs.toFloat();
+	return (o);
 }

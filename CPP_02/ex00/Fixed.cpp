@@ -6,19 +6,20 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 19:44:32 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/01 02:04:11 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/01 14:34:58 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _raw(0), _bitsShift(8)
+Fixed::Fixed() : _raw(0)
 {
+	(void)this->_bitsShift;
 	std::cout << BHGREEN << "Default constructor called" << RESET << std::endl;
 	return ;
 }
 
-Fixed::Fixed( Fixed const & src ) : _bitsShift(8)
+Fixed::Fixed( Fixed const & src )
 {
 	std::cout << BHYELLOW << "Copy constructor called" << RESET << std::endl;
 	*this = src;
