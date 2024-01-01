@@ -21,7 +21,7 @@ WHITE = \033[1;97m
 
 ########################################
 ########## SOURCES
-SRCS	=	.cpp
+SRCS	=	main.cpp Fixed.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
