@@ -1,7 +1,7 @@
 ########################################
 ########## VARIABLES
 
-NAME		= BSP
+NAME		= bsp
 CC			= c++
 INCLUDES	= -I ./
 CFLAGS		= -Wall -Wextra -Werror -std=c++98 $(INCLUDES)

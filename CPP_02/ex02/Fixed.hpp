@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 19:44:29 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/01 22:11:21 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/02 12:22:17 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ public:
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 
-	static Fixed const & min( Fixed const & lhs, Fixed const & rhs );
 	static Fixed& min( Fixed & lhs, Fixed & rhs );
+	static Fixed const & min( Fixed const & lhs, Fixed const & rhs );
 
-	static Fixed const & max( Fixed const & lhs, Fixed const & rhs );
 	static Fixed& max( Fixed & lhs, Fixed & rhs );
+	static Fixed const & max( Fixed const & lhs, Fixed const & rhs );
 
 	int		getRawBits( void ) const; // Accesseur
 	void	setRawBits( int const raw ); // Setteur
