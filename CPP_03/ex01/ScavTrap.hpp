@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 17:00:49 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/02 20:15:10 by tajavon          ###   ########.fr       */
+/*   Created: 2024/01/02 19:43:38 by tajavon           #+#    #+#             */
+/*   Updated: 2024/01/02 21:17:20 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Colors.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 #include "ClapTrap.hpp"
 
-int	main(void)
+class ScavTrap : public ClapTrap
 {
-	ClapTrap clap("J2K");
+	public:
+		ScavTrap( std::string name );
+		ScavTrap( ScavTrap const & src );
+		~ScavTrap();
 
-	clap.attack("Lorem Ipsum");
+		ScavTrap	&operator=( ScavTrap const & rhs );
 
-	for (size_t i = 0; i < 5; i++)
-	{
-		clap.beRepaired(20);
-	}
-	for (size_t i = 0; i < 11; i++)
-	{
-		clap.takeDamage(12);
-	}
+		void	guardGate( void );
+		void	attack(const std::string& target);
+};
 
-
-	// for (size_t i = 0; i < 6; i++)
-	// {
-	// 	clap.takeDamage(i + 1);
-	// 	clap.beRepaired(i);
-	// }
-
-
-	// clap.getAttackDamage();
-
-	// clap.beRepaired(100);
-	ClapTrap b = clap;
-}
+#endif

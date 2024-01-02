@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 17:00:49 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/02 20:15:10 by tajavon          ###   ########.fr       */
+/*   Created: 2024/01/02 21:25:17 by tajavon           #+#    #+#             */
+/*   Updated: 2024/01/02 21:32:49 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Colors.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 #include "ClapTrap.hpp"
 
-int	main(void)
+class FragTrap : public ClapTrap
 {
-	ClapTrap clap("J2K");
+private:
+	/* data */
+public:
+	FragTrap( std::string name );
+	FragTrap( FragTrap const & src );
+	~FragTrap();
 
-	clap.attack("Lorem Ipsum");
-
-	for (size_t i = 0; i < 5; i++)
-	{
-		clap.beRepaired(20);
-	}
-	for (size_t i = 0; i < 11; i++)
-	{
-		clap.takeDamage(12);
-	}
+	FragTrap	&operator=( FragTrap const & rhs );
+	void	highFivesGuys(void);
+};
 
 
-	// for (size_t i = 0; i < 6; i++)
-	// {
-	// 	clap.takeDamage(i + 1);
-	// 	clap.beRepaired(i);
-	// }
 
 
-	// clap.getAttackDamage();
-
-	// clap.beRepaired(100);
-	ClapTrap b = clap;
-}
+#endif

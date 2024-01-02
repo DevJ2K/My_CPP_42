@@ -6,38 +6,39 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:00:49 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/02 20:15:10 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/02 21:39:58 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Colors.hpp"
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap clap("J2K");
+	FragTrap frag("J2K");
 
-	clap.attack("Lorem Ipsum");
-
+	frag.attack("Player");
+	frag.highFivesGuys();
 	for (size_t i = 0; i < 5; i++)
 	{
-		clap.beRepaired(20);
+		frag.beRepaired(20);
 	}
-	for (size_t i = 0; i < 11; i++)
+	for (size_t i = 0; i < 5; i++)
 	{
-		clap.takeDamage(12);
+		frag.takeDamage(40);
 	}
-
+	frag.highFivesGuys();
 
 	// for (size_t i = 0; i < 6; i++)
 	// {
-	// 	clap.takeDamage(i + 1);
-	// 	clap.beRepaired(i);
+	// 	frag.takeDamage(i + 1);
+	// 	frag.beRepaired(i);
 	// }
 
 
-	// clap.getAttackDamage();
+	// frag.getAttackDamage();
 
-	// clap.beRepaired(100);
-	ClapTrap b = clap;
+	// frag.beRepaired(100);
 }
