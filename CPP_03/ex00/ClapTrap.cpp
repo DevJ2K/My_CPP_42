@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:56:23 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/02 19:04:22 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/02 19:40:02 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,21 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (this->_check_life_and_energy("attack") == false)
 		return ;
-	std::cout << BHWHITE << "ClapTrap " << this->getName()
-	<< " attacks " << target << ", causing "
+	std::cout << BHWHITE << "ClapTrap " << RESET
+	<< BHBLUE << this->getName() << RESET << BHWHITE
+	<< " attacks "
+	<< BHRED << target << RESET << BHWHITE ", causing "
 	<< this->getAttackDamage() << " points of damage!" << std::endl;
 	this->_energyPoints -= 1;
+	this->displayInfo();
+	return ;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << RED << "You cannot take more damage because you have already 0 hit points." << RESET << std::endl;
+		std::cout << RED << "You cannot take more damage because you have not enough hit points." << RESET << std::endl;
 		return ;
 	}
 	if (amount >= this->_hitPoints)
@@ -95,7 +99,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	else
 		this->_hitPoints -= amount;
 	std::cout << YELLOW << "You lost " << amount << " hit points. Be careful !" << RESET << std::endl;
-	this->displayHealth();
+	this->displayInfo();
 	return ;
 }
 
@@ -106,12 +110,14 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	this->_energyPoints -= 1;
 	this->_hitPoints += amount;
 	std::cout << GREEN << "You get " << amount << " hit points back !" << RESET << std::endl;
-	this->displayHealth();
+	this->displayInfo();
 	return ;
 }
 
-void	ClapTrap::displayHealth( void ) const
+void	ClapTrap::displayInfo( void ) const
 {
-	std::cout << BHWHITE << "You have " << RESET << BHMAG << this->getHitPoints() << "HP !" << RESET << std::endl;
+	std::cout << BHWHITE << "You have " << RESET
+	<< BHMAG << this->getHitPoints() << "HP" << RESET << " and "
+	<< BHYELLOW << this->getEnergyPoints() << " Energy Points !" << RESET << std::endl;
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:56:05 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/02 19:03:33 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/02 19:28:40 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class ClapTrap
 		unsigned int	getAttackDamage( void ) const;
 		std::string		getName( void ) const;
 
-		void	displayHealth( void ) const;
+		void	displayInfo( void ) const;
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
