@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:00:49 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/02 19:40:17 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/02 19:42:20 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	{
 		clap.beRepaired(20);
 	}
-	for (size_t i = 0; i < 5; i++)
+	for (size_t i = 0; i < 100; i++)
 	{
 		clap.takeDamage(12);
 	}
