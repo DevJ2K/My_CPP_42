@@ -6,13 +6,13 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 23:44:14 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/02 12:36:35 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/02 12:39:18 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Point::Point() : _x(0), _y(0)
+Point::Point() : _x(Fixed(0)), _y(Fixed(0))
 {
 	return ;
 }
