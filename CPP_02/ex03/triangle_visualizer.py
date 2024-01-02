@@ -11,7 +11,7 @@ def plot_triangle(vertices, x, y):
 	plt.plot(vertices[:, 0], vertices[:, 1], 'bo-')
 	plt.fill(vertices[:, 0], vertices[:, 1], alpha=0.3)
 
-	plt.scatter(x, y, color='red', label='Point supplémentaire')
+	plt.scatter(x, y, color='red', label='Point')
 
 	plt.xlabel('Axe X')
 	plt.ylabel('Axe Y')
