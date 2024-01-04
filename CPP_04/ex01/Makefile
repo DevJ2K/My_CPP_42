@@ -4,7 +4,7 @@
 NAME		= IdontWantToBurnTheWorld
 CC			= c++
 INCLUDES	= -I ./includes/
-CFLAGS		= -Wall -Wextra -Werror -std=c++98 $(INCLUDES)
+CFLAGS		= -Wall -Wextra -Werror -g -std=c++98 $(INCLUDES)
 RM			= rm -f
 
 ########################################

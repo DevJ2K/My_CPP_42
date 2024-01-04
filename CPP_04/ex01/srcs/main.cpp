@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:35:26 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 20:42:06 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 21:35:27 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ int main()
 			le_zoo[i] = new Cat();
 	}
 
-	// Animal	*a = new Animal(*le_zoo[0]);
-
-	// delete a;
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
 
 	display_big_line("DELETE ZOO");
 	for (size_t i = 0; i < nb_animaux; i++)
