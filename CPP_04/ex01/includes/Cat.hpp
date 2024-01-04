@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 14:24:02 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 21:06:12 by tajavon          ###   ########.fr       */
+/*   Created: 2024/01/04 12:46:58 by tajavon           #+#    #+#             */
+/*   Updated: 2024/01/04 20:26:48 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
-#include "WrongAnimal.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-class WrongCat : public WrongAnimal
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Cat : public Animal
 {
-public:
-	WrongCat(/* args */);
-	WrongCat( WrongCat const & src );
-	~WrongCat();
+	private:
+		Brain*	_brain;
+	public:
+		Cat();
+		Cat( Cat const & src );
+		~Cat();
 
-	WrongCat	&operator=( WrongCat const & rhs );
+		Cat	&operator=( Cat const & rhs );
 
-	virtual std::string	getType( void ) const;
-	void		makeSound( void ) const;
-
+		virtual std::string	getType( void ) const;
+		virtual void		makeSound( void ) const;
+		Brain*	getBrain( void ) const;
 };
 
 #endif

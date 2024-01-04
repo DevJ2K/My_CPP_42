@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:24:05 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 21:06:56 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 14:40:05 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,4 @@ WrongCat	&WrongCat::operator=( WrongCat const & rhs )
 std::string	WrongCat::getType( void ) const
 {
 	return (this->type);
-}
-
-void	WrongCat::makeSound( void ) const
-{
-	std::cout << REDB << "MIOU MIOU, I'm a wrong cat !!" << RESET << std::endl;
-	return ;
 }

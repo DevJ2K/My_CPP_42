@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:24:02 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 21:06:12 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 14:34:54 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ public:
 	WrongCat	&operator=( WrongCat const & rhs );
 
 	virtual std::string	getType( void ) const;
-	void		makeSound( void ) const;
-
 };
 
 #endif

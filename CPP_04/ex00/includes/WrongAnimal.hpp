@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:38:12 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 14:30:56 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 21:09:18 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class WrongAnimal
 		WrongAnimal	&operator=( WrongAnimal const & rhs );
 
 		virtual std::string	getType( void ) const;
-		virtual void		makeSound( void ) const;
+		void		makeSound( void ) const;
 };
 
 #endif

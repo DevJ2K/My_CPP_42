@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 14:24:02 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 21:06:12 by tajavon          ###   ########.fr       */
+/*   Created: 2024/01/04 15:33:42 by tajavon           #+#    #+#             */
+/*   Updated: 2024/01/04 20:56:45 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
-#include "WrongAnimal.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+#include <string>
 
-class WrongCat : public WrongAnimal
+class Brain
 {
-public:
-	WrongCat(/* args */);
-	WrongCat( WrongCat const & src );
-	~WrongCat();
+	private:
+		static const int	_nb_ideas = 10;
+		std::string	_ideas[_nb_ideas];
+	public:
+		Brain();
+		Brain( Brain const & src );
+		~Brain();
 
-	WrongCat	&operator=( WrongCat const & rhs );
+		Brain	&operator=( Brain const & rhs );
 
-	virtual std::string	getType( void ) const;
-	void		makeSound( void ) const;
+		std::string	getIdeas( int index ) const;
+		int	getNbIdeas( void ) const;
+		void		setIdeas( int index, std::string ideas );
 
 };
 

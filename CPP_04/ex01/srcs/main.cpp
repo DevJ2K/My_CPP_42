@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:35:26 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 21:08:20 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 20:42:06 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,6 @@
 #include "Dog.hpp"
 #include "Colors.hpp"
 #include <iostream>
-
-// int main()
-// {
-// 	const Animal* meta = new Animal();
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
-// 	// const WrongAnimal* i = new WrongCat();
-// 	std::cout << j->getType() << " " << std::endl;
-// 	std::cout << i->getType() << " " << std::endl;
-// 	i->makeSound();
-// 	j->makeSound();
-// 	meta->makeSound();
-
-// 	delete meta;
-// 	delete j;
-// 	delete i;
-// 	return 0;
-// }
 
 static void	display_big_line( std::string title )
 {
@@ -55,44 +37,33 @@ static void	display_big_line( std::string title )
 	return ;
 }
 
-static void	display_type( std::string type)
-{
-	std::cout << BWHITE << "I'm a " << RESET << BHMAG << type << RESET << std::endl;
-	return ;
-}
+// static void	display_type( std::string type)
+// {
+// 	std::cout << BWHITE << "I'm a " << RESET << BHMAG << type << RESET << std::endl;
+// 	return ;
+// }
 
 int main()
 {
-	display_big_line("ANIMAL");
-	const Animal* meta = new Animal();
-	display_type(meta->getType());
-	meta->makeSound();
-	delete meta;
+	size_t	nb_animaux = 6;
+	Animal	*le_zoo[nb_animaux];
 
-	display_big_line("DOG");
-	const Animal* dog = new Dog();
-	display_type(dog->getType());
-	dog->makeSound();
-	delete dog;
+	display_big_line("FILL ZOO");
+	for (size_t i = 0; i < nb_animaux; i++)
+	{
+		if (i % 2 == 0)
+			le_zoo[i] = new Dog();
+		else
+			le_zoo[i] = new Cat();
+	}
 
-	display_big_line("CAT");
-	const Animal* cat = new Cat();
-	display_type(cat->getType());
-	cat->makeSound();
-	delete cat;
+	// Animal	*a = new Animal(*le_zoo[0]);
 
+	// delete a;
 
-	display_big_line("WRONGCAT as WrongAnimal");
-	const WrongAnimal* wrongCatAsAnimal = new WrongCat();
-	display_type(wrongCatAsAnimal->getType());
-	wrongCatAsAnimal->makeSound();
-	delete wrongCatAsAnimal;
-
-	display_big_line("WRONGCAT");
-	const WrongCat* wrongCat = new WrongCat();
-	display_type(wrongCat->getType());
-	wrongCat->makeSound();
-	delete wrongCat;
+	display_big_line("DELETE ZOO");
+	for (size_t i = 0; i < nb_animaux; i++)
+		delete le_zoo[i];
 
 	display_big_line("END");
 	return 0;
