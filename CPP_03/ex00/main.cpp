@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:00:49 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 09:27:14 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 09:40:05 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void)
 {
-	ClapTrap clap("J2K");
+	ClapTrap clap("Clap_J2K");
 
 	clap.attack("Lorem Ipsum");
 

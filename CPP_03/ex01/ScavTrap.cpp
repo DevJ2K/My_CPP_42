@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 19:43:36 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/02 21:18:37 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 09:38:48 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
 {
-	std::cout << BGREEN << "ScavTrap constructor called with params : " << RESET << BHCYAN << name << RESET << std::endl;
+	std::cout << BGREEN << "ScavTrap constructor called with params : " << RESET << BHMAG << name << RESET << std::endl;
 	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
@@ -49,7 +49,7 @@ void	ScavTrap::guardGate( void )
 	if (this->_check_life_and_energy("guard the gate") == false)
 		return ;
 	this->_energyPoints -= 1;
-	std::cout << BHMAG << "You're now in Gate keeper mode !" << RESET << std::endl;
+	std::cout << BHCYAN << this->getName() << ": " << RESET << BHMAG << "You're now in Gate keeper mode !" << RESET << std::endl;
 
 }
 
@@ -69,6 +69,6 @@ void	ScavTrap::attack(const std::string& target)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << BRED << "ScavTrap destructor called" << RESET << std::endl;
+	std::cout << BRED << "ScavTrap destructor called : " << RESET << BHMAG << this->getName() << RESET << std::endl;
 	return ;
 }
