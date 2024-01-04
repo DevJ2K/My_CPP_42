@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:46:58 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 14:16:55 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 14:25:29 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 
 class Cat : public Animal
 {
-private:
-	/* data */
 public:
-	Cat(/* args */);
+	Cat();
 	Cat( Cat const & src );
 	~Cat();
 

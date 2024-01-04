@@ -21,7 +21,7 @@ WHITE = \033[1;97m
 
 ########################################
 ########## SOURCES
-SRCS	=	srcs/main.cpp srcs/Animal.cpp srcs/Cat.cpp srcs/Dog.cpp
+SRCS	=	srcs/main.cpp srcs/Animal.cpp srcs/Cat.cpp srcs/Dog.cpp srcs/WrongCat.cpp srcs/WrongAnimal.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 

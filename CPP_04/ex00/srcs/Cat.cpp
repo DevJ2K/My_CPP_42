@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:47:29 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 14:13:17 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 14:39:48 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include "Colors.hpp"
 #include <iostream>
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
 	this->type = "Cat";
 	std::cout << BGREEN << "Cat constructor called !" << RESET << std::endl;
 }
 
-Cat::Cat( Cat const & src )
+Cat::Cat( Cat const & src ) : Animal(src)
 {
 	std::cout << BYELLOW << "Cat copy constructor called !" << RESET << std::endl;
 	*this = src;
