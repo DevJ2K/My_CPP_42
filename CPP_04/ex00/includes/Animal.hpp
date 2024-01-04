@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:38:12 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 12:58:47 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 14:16:03 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ class Animal
 	public:
 		Animal();
 		Animal( Animal const & src );
-		~Animal();
+		virtual ~Animal();
 
 		Animal	&operator=( Animal const & rhs );
 
-		virtual std::string	getType( void );
-		virtual void		makeSound( void );
+		virtual std::string	getType( void ) const;
+		virtual void		makeSound( void ) const;
 };
 
 #endif

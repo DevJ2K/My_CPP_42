@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:43:13 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 12:44:17 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 14:18:41 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ private:
 	/* data */
 public:
 	Dog(/* args */);
+	Dog( Dog const & src );
 	~Dog();
+
+	Dog	&operator=( Dog const & rhs );
+
+	virtual std::string	getType( void ) const;
+	virtual void		makeSound( void ) const;
 };
 
 #endif
