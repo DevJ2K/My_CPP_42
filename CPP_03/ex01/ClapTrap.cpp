@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:56:23 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 09:37:22 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 10:00:09 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ bool	ClapTrap::_check_life_and_energy( std::string action ) const
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << RED << "You cannot " << action << " because you have not enough hit points." << RESET << std::endl;
+		std::cout << BHCYAN << this->getName() << ": " << RESET << RED << "You cannot " << action << " because you have not enough hit points." << RESET << std::endl;
 		return (false);
 	}
 	if (this->_energyPoints <= 0)
 	{
-		std::cout << RED << "You cannot " << action << " because you have not enough energy points." << RESET << std::endl;
+		std::cout << BHCYAN << this->getName() << ": " << RESET << RED << "You cannot " << action << " because you have not enough energy points." << RESET << std::endl;
 		return (false);
 	}
 	return (true);

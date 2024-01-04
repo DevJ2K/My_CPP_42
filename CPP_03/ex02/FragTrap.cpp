@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 21:25:20 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/02 21:42:34 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/04 09:59:16 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	FragTrap::highFivesGuys( void )
 	if (this->_check_life_and_energy("do a high fives") == false)
 		return ;
 	this->_energyPoints -= 1;
-	std::cout << BHWHITE << this->getName() << ": " << RESET
+	std::cout << BHCYAN << this->getName() << ": " << RESET << BHWHITE << this->getName() << ": " << RESET
 	<< BHMAG << "Hi, I want a high fives !!" << RESET << std::endl;
 
 }
