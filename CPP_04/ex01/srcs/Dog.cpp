@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:43:06 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 21:44:22 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 10:04:24 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Dog	&Dog::operator=( Dog const & rhs )
 	this->type = rhs.getType();
 	if (this->_brain != NULL)
 		delete this->_brain;
-	this->_brain = new Brain();
+	this->_brain = new Brain(*rhs.getBrain());
 	return (*this);
 }
 

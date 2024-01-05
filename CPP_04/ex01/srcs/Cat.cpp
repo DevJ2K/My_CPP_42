@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:47:29 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 20:37:52 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 10:04:10 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Cat::Cat() : Animal()
 
 Cat::Cat( Cat const & src ) : Animal(src)
 {
+	this->_brain = NULL;
 	std::cout << BYELLOW << "Cat copy constructor called !" << RESET << std::endl;
 	*this = src;
 	return ;
@@ -30,7 +31,7 @@ Cat::Cat( Cat const & src ) : Animal(src)
 
 Cat::~Cat()
 {
-	delete _brain;
+	delete this->_brain;
 	std::cout << BRED << "Cat destructor called !" << RESET << std::endl;
 	return ;
 }
