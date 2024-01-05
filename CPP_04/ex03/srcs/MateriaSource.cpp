@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:25:56 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 15:41:29 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:54:14 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void MateriaSource::learnMateria(AMateria* m)
 	}
 	else
 	{
-		std::cout << BHRED << "[Your Materia Source is full ! Please create Materia !]" << RESET << std::endl;
+		std::cout << BHRED << "Your Materia Source is full ! You need to recreate a new Materia Source..." << RESET << std::endl;
 		delete m;
 	}
 
@@ -109,7 +109,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 
 void	MateriaSource::displayLearnMateria( void ) const
 {
-	for (int i = 0; i < this->_nb_items; i++)
+	for (int i = 0; i < this->_size_inventory; i++)
 	{
 		std::cout << BHWHITE << "[Slot n*" << i
 		<< "] : " << RESET;

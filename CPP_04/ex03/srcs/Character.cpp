@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:32:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 15:38:04 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:53:36 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void Character::equip(AMateria* m)
 	if (m == NULL)
 		std::cout << BWHITE << "[Nothing has been add to your inventory...]" << RESET << std::endl;
 	else if (this->_nb_items >= this->_size_inventory)
-		std::cout << BHRED << "[Your inventory is full ! Please unequip a Materia !]" << RESET << std::endl;
+		std::cout << BHRED << "Your inventory is full ! Please unequip a Materia !" << RESET << std::endl;
 	else
 	{
 		for (int i = 0; i < this->_size_inventory; i++)
