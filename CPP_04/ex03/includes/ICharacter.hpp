@@ -6,14 +6,16 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:13:07 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 11:13:56 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 13:37:29 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
-#include <string>
+
 #include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

@@ -6,18 +6,19 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:06:23 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 11:37:24 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 13:38:21 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <Colors.hpp>
 #include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 #include "ICharacter.hpp"
 #include "Character.hpp"
-#include "Ice.hpp"
 #include "Cure.hpp"
-#include "Colors.hpp"
-#include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "AMateria.hpp"
 
 static void	display_big_line( std::string title )
 {
@@ -40,6 +41,7 @@ static void	display_big_line( std::string title )
 
 int main()
 {
+	display_big_line("REAL MAIN");
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());

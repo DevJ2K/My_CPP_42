@@ -1,10 +1,10 @@
 ########################################
 ########## VARIABLES
 
-NAME		=
+NAME		= Interface
 CC			= c++
 INCLUDES	= -I ./includes/
-CFLAGS		= -Wall -Wextra -Werror -std=c++98 $(INCLUDES)
+CFLAGS		= -Wall -Wextra -Werror -g3 -std=c++98 $(INCLUDES)
 RM			= rm -f
 
 ########################################
@@ -21,7 +21,13 @@ WHITE = \033[1;97m
 
 ########################################
 ########## SOURCES
-SRCS	=	srcs/.cpp \
+SRCS	=	srcs/main.cpp \
+			srcs/AMateria.cpp \
+			srcs/Character.cpp \
+			srcs/Cure.cpp \
+			srcs/Ice.cpp \
+			srcs/MateriaSource.cpp
+
 
 OBJS	=	$(SRCS:.cpp=.o)
 
