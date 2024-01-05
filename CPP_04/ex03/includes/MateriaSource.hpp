@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:23:39 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 13:42:45 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:02:06 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
 	MateriaSource	&operator=( MateriaSource const & rhs );
 
 	AMateria*	getMateria(int idx) const;
+	void	displayLearnMateria( void ) const;
 
 	virtual void learnMateria(AMateria*);
 	virtual AMateria* createMateria(std::string const & type);

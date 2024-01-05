@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:43:13 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/04 20:25:30 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 10:20:14 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Dog : public Animal
 	public:
 		Dog();
 		Dog( Dog const & src );
-		~Dog();
+		virtual ~Dog();
 
 		Dog	&operator=( Dog const & rhs );
 

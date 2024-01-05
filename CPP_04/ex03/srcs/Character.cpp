@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:32:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 14:05:02 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:38:04 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ Character::Character( Character const & src )
 
 Character::~Character()
 {
-	for (int i = 0; i < this->_nb_items; i++)
+	for (int i = 0; i < this->_size_inventory; i++)
 	{
 		if (this->_inventory[i] != NULL)
 		{
 			delete this->_inventory[i];
-			std::cout << "Item deleted !" << std::endl;
+			this->_inventory[i] = NULL;
 		}
 	}
 	std::cout << BHRED << "Character has been deleted ! : " << RESET
@@ -69,6 +69,12 @@ std::string const & Character::getName() const
 	return (this->_name);
 }
 
+void		Character::setName( std::string const & name )
+{
+	this->_name = name;
+	return ;
+}
+
 int	Character::getInventorySize() const
 {
 	return (this->_size_inventory);
@@ -83,16 +89,24 @@ AMateria*	Character::getMateria(int idx) const
 
 void Character::equip(AMateria* m)
 {
-	if (this->_nb_items < this->_size_inventory)
-	{
-		this->_inventory[this->_nb_items] = m;
-		this->_nb_items += 1;
-		std::cout << BHGREEN << "Your item has been successfully had to your inventory !" << RESET << std::endl;
-
-	}
+	if (m == NULL)
+		std::cout << BWHITE << "[Nothing has been add to your inventory...]" << RESET << std::endl;
+	else if (this->_nb_items >= this->_size_inventory)
+		std::cout << BHRED << "[Your inventory is full ! Please unequip a Materia !]" << RESET << std::endl;
 	else
-		std::cout << BHRED << "Your inventory is full ! Please unequip a Materia !" << RESET << std::endl;
-
+	{
+		for (int i = 0; i < this->_size_inventory; i++)
+		{
+			if (this->_inventory[i] == NULL)
+			{
+				this->_inventory[i] = m;
+				this->_nb_items += 1;
+				std::cout << BHCYAN << m->getType() << RESET
+				<< BHGREEN << " materia has been successfully add to your inventory !" << RESET << std::endl;
+				return ;
+			}
+		}
+	}
 }
 
 void Character::unequip(int idx)
@@ -102,7 +116,7 @@ void Character::unequip(int idx)
 	else if (idx >= this->_size_inventory)
 		std::cout << BHRED << "Index out of range of your inventory ("
 		<< this->_size_inventory << ")!" << RESET << std::endl;
-	else if (idx < this->_nb_items)
+	else if (this->_inventory[idx])
 	{
 		this->_nb_items -= 1;
 		std::cout << BHGREEN << this->_inventory[idx]->getType()
@@ -111,7 +125,7 @@ void Character::unequip(int idx)
 
 	}
 	else
-		std::cout << BHRED << "Your inventory is full ! Please unequip a Materia !" << RESET << std::endl;
+		std::cout << BHRED << "This slot is already !" << RESET << std::endl;
 
 }
 
@@ -124,13 +138,24 @@ void Character::use(int idx, ICharacter& target)
 		std::cout << BHRED << "Index out of range of your inventory ("
 		<< this->_size_inventory << ")!" << RESET << std::endl;
 	}
-	else if (idx < this->_nb_items)
-	{
-		std::cout << REDHB << "HERRREE" << RESET << std::endl;
-		std::cout << REDHB << this->_nb_items << RESET << std::endl;
+	else if (this->_inventory[idx])
 		this->_inventory[idx]->use(target);
-	}
 	else
 		std::cout << BHRED << "This slot is empty !" << RESET << std::endl;
+
+}
+
+void	Character::displayInventory( void ) const
+{
+	for (int i = 0; i < this->_size_inventory; i++)
+	{
+		std::cout << BHWHITE << "[Slot n*" << i
+		<< "] : " << RESET;
+		if (this->_inventory[i] == NULL)
+			std::cout << BHWHITE << "EMPTY";
+		else
+			std::cout << BHCYAN << this->_inventory[i]->getType();
+		std::cout << RESET << std::endl;
+	}
 
 }

@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:06:23 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 13:38:21 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 14:55:14 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	display_big_line( std::string title )
 	return ;
 }
 
+// MANDATORY
 int main()
 {
 	display_big_line("REAL MAIN");

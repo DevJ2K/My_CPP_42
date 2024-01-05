@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 12:01:16 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 12:03:43 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 14:46:43 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Cure::Cure() : AMateria("cure")
 {
-	std::cout << BHCYAN << "New Cure materia create !" << RESET << std::endl;
+	std::cout << BHYELLOW << "New Cure materia create !" << RESET << std::endl;
 	this->_type = "cure";
 	return ;
 }
@@ -30,7 +30,7 @@ Cure::Cure( Cure const & src ) : AMateria("cure")
 
 Cure::~Cure()
 {
-	std::cout << BHRED << "Cure materia has been destroyed !" << RESET << std::endl;
+	std::cout << BHYELLOW << "Cure" << RESET << BRED << " materia has been destroyed !" << RESET << std::endl;
 	return ;
 }
 

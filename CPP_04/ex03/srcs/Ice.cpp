@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:08:42 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 12:03:45 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 14:47:04 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Ice::Ice( Ice const & src ) : AMateria("ice")
 
 Ice::~Ice()
 {
-	std::cout << BHRED << "Ice materia has been destroyed !" << RESET << std::endl;
+	std::cout << BHCYAN << "Ice" << RESET << BRED << " materia has been destroyed !" << RESET << std::endl;
 	return ;
 }
 

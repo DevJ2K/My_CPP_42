@@ -21,7 +21,7 @@ WHITE = \033[1;97m
 
 ########################################
 ########## SOURCES
-SRCS	=	srcs/main.cpp \
+SRCS	=	srcs/main1.cpp \
 			srcs/AMateria.cpp \
 			srcs/Character.cpp \
 			srcs/Cure.cpp \

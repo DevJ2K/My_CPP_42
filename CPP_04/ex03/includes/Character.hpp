@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:31:52 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 13:47:37 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:28:56 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ class Character : public ICharacter
 
 		Character	&operator=( Character const & rhs );
 
-		std::string const & getName() const;
-		int			getInventorySize() const;
+		std::string const & getName( void ) const;
+		void		setName( std::string const & name );
+		int			getInventorySize( void ) const;
+		void		displayInventory( void ) const;
 		AMateria*	getMateria(int idx) const;
 		void equip(AMateria* m);
 		void unequip(int idx);

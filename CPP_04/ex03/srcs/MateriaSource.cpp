@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:25:56 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 14:14:22 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:41:29 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 MateriaSource::MateriaSource() : _nb_items(0)
 {
-	std::cout << BHGREEN << "MateriaSource Constructor called !"<< RESET << std::endl;
+	// std::cout << BHGREEN << "MateriaSource Constructor called !"<< RESET << std::endl;
 	for (int i = 0; i < this->_size_inventory; i++)
 		this->_inventory[i] = NULL;
 	return ;
@@ -24,7 +24,7 @@ MateriaSource::MateriaSource() : _nb_items(0)
 
 MateriaSource::MateriaSource( MateriaSource const & src )
 {
-	std::cout << BHYELLOW << "MateriaSource copy constructor called !"<< RESET << std::endl;
+	// std::cout << BHYELLOW << "MateriaSource copy constructor called !"<< RESET << std::endl;
 	for (int i = 0; i < this->_size_inventory; i++)
 		this->_inventory[i] = NULL;
 	*this = src;
@@ -33,15 +33,12 @@ MateriaSource::MateriaSource( MateriaSource const & src )
 
 MateriaSource::~MateriaSource()
 {
-		for (int i = 0; i < this->_nb_items; i++)
+	for (int i = 0; i < this->_size_inventory; i++)
 	{
 		if (this->_inventory[i] != NULL)
-		{
 			delete this->_inventory[i];
-			std::cout << "Item deleted !" << std::endl;
-		}
 	}
-	std::cout << BHRED << "MateriaSource destructor called ! : " << RESET << std::endl;
+	// std::cout << BHRED << "MateriaSource destructor called ! : " << RESET << std::endl;
 	return ;
 }
 
@@ -64,16 +61,21 @@ MateriaSource	&MateriaSource::operator=( MateriaSource const & rhs )
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-	if (this->_nb_items < this->_size_inventory)
+	if (m == NULL)
+		std::cout << BWHITE << "[Nothing has been learn...]" << RESET << std::endl;
+	else if (this->_nb_items < this->_size_inventory)
 	{
 		this->_inventory[this->_nb_items] = m;
 		this->_nb_items += 1;
-		std::cout << BHGREEN << m->getType()
-		<< " has learn and add to Materia Source !" << RESET << std::endl;
+		std::cout << BHWHITE << m->getType() << RESET << BGREEN
+		<< " has been learn and add to Materia Source !" << RESET << std::endl;
 
 	}
 	else
-		std::cout << BHRED << "Your Materia Source is full ! Please create Materia !" << RESET << std::endl;
+	{
+		std::cout << BHRED << "[Your Materia Source is full ! Please create Materia !]" << RESET << std::endl;
+		delete m;
+	}
 
 }
 
@@ -95,8 +97,8 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	{
 		if (this->_inventory[i] && this->_inventory[i]->getType() == type)
 		{
-			std::cout << BHCYAN << "New Materia of type ["
-			<< type << "] has been created !" << RESET << std::endl;
+			std::cout << BCYAN << "New Materia of type ["
+			<< RESET << BHMAG << type << RESET << BCYAN << "] has been created !" << RESET << std::endl;
 			return (this->_inventory[i]->clone());
 		}
 	}
@@ -105,3 +107,17 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	return (NULL);
 }
 
+void	MateriaSource::displayLearnMateria( void ) const
+{
+	for (int i = 0; i < this->_nb_items; i++)
+	{
+		std::cout << BHWHITE << "[Slot n*" << i
+		<< "] : " << RESET;
+		if (this->_inventory[i] == NULL)
+			std::cout << BHWHITE << "EMPTY";
+		else
+			std::cout << BHCYAN << this->_inventory[i]->getType();
+		std::cout << RESET << std::endl;
+	}
+
+}
