@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:59:14 by tajavon           #+#    #+#             */
-/*   Updated: 2023/12/29 13:57:20 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/06 17:35:45 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "Prenom : ";
 		std::getline(std::cin, firstName);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl << BHRED << "[CTRL - D]: Sorti de programme demandé !" << RESET << std::endl;
+			exit (1);
+		}
 		if (firstName.empty() || checkOnlyLetters(firstName) == false)
 		{
 			std::cout << BHRED << "Veuillez mettre un prenom valide !" << RESET << std::endl;
@@ -86,6 +91,11 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "Nom : ";
 		std::getline(std::cin, lastName);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl << BHRED << "[CTRL - D]: Sorti de programme demandé !" << RESET << std::endl;
+			exit (1);
+		}
 		if (lastName.empty() || checkOnlyLetters(lastName) == false)
 		{
 			std::cout << BHRED << "Veuillez mettre un nom valide !" << RESET << std::endl;
@@ -98,6 +108,11 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "Surnom : ";
 		std::getline(std::cin, nickname);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl << BHRED << "[CTRL - D]: Sorti de programme demandé !" << RESET << std::endl;
+			exit (1);
+		}
 		if (nickname.empty())
 		{
 			std::cout << BHRED << "Veuillez mettre un surnom !" << RESET << std::endl;
@@ -110,6 +125,11 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "Numero de telephone : ";
 		std::getline(std::cin, phoneNumber);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl << BHRED << "[CTRL - D]: Sorti de programme demandé !" << RESET << std::endl;
+			exit (1);
+		}
 		if (phoneNumber.empty() || checkOnlyDigits(phoneNumber) == false || checkValidNumber(phoneNumber) == false)
 		{
 			std::cout << BHRED << "Veuillez mettre un numero de telephone valide !" << RESET << std::endl;
@@ -122,6 +142,11 @@ void	PhoneBook::addContact(void)
 	{
 		std::cout << "Secret le plus lourd : ";
 		std::getline(std::cin, darksetSecret);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl << BHRED << "[CTRL - D]: Sorti de programme demandé !" << RESET << std::endl;
+			exit (1);
+		}
 		if (darksetSecret.empty())
 		{
 			std::cout << BHMAG << "Allez dis-nous ton secret, ca reste entre nous..." << RESET << std::endl;
@@ -131,7 +156,7 @@ void	PhoneBook::addContact(void)
 	}
 
 	this->_contactList[this->_addIndex].setInfoContact(firstName, lastName, nickname, phoneNumber, darksetSecret);
-	if (this->_addIndex == 4)
+	if (this->_addIndex == 7)
 		this->_addIndex = 0;
 	else
 	{
@@ -192,6 +217,11 @@ void	PhoneBook::searchContact(void)
 	std::cout << BHWHITE << "Entrez l'index -> " << RESET;
 	std::string index;
 	std::getline(std::cin, index);
+	if (std::cin.eof())
+	{
+		std::cout << std::endl << BHRED << "[CTRL - D]: Sorti de programme demandé !" << RESET << std::endl;
+		exit (1);
+	}
 	if (index.empty())
 	{
 		std::cout << BHRED << "Vous n'avez rentre aucun index !" << RESET << std::endl;
