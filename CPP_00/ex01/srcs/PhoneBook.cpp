@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:59:14 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/06 17:35:45 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/06 17:42:00 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,11 +157,15 @@ void	PhoneBook::addContact(void)
 
 	this->_contactList[this->_addIndex].setInfoContact(firstName, lastName, nickname, phoneNumber, darksetSecret);
 	if (this->_addIndex == 7)
+	{
 		this->_addIndex = 0;
+		this->_nbContacts = 8;
+	}
 	else
 	{
 		this->_addIndex++;
-		this->_nbContacts++;
+		if (this->_nbContacts < 8)
+			this->_nbContacts++;
 	}
 }
 
