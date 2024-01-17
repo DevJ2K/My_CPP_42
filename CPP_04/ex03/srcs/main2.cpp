@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:42:43 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/05 16:06:17 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 19:40:45 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	main(void)
 	MateriaSource	*all_materia = new MateriaSource();
 	all_materia->displayLearnMateria();
 
-	Ice *ice1 = new Ice();
+	Ice *ice1 = new Ice();er des objets Animal ne sert pas à grand-chose au final. Ils ne font aucun bruit !
+Afin d’éviter les erreurs potentielles, la classe Animal de base ne doit pas être instanciable. Modifiez-la afin que personne ne puisse l’instancier
 	Cure *cure1 = new Cure();
 
 	all_materia->learnMateria(ice1);

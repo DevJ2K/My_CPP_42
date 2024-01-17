@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:16:46 by mcombeau          #+#    #+#             */
-/*   Updated: 2024/01/05 15:43:50 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/05 19:40:41 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,8 @@ void	testCharacters(void)
 	emily->displayInventory();
 	delete emily;
 
-	std::cout << std::endl << "-- CLEANING UP UNEQUIPPED MATERIA" << std::endl;
+	std::cout << std::endl << "-- CLEANINGer des objets Animal ne sert pas à grand-chose au final. Ils ne font aucun bruit !
+Afin d’éviter les erreurs potentielles, la classe Animal de base ne doit pas être instanciable. Modifiez-la afin que personne ne puisse l’instancier UP UNEQUIPPED MATERIA" << std::endl;
 	delete m2;
 	delete m3;
 	delete m5;
@@ -195,7 +196,8 @@ void	testMateriaDuelBetweenTwoCharacters(void)
 	std::cout << std::endl;
 
 	std::cout << std::endl << "-- CREATING CHARACTERS" << std::endl;
-	ICharacter * igor = new Character("Igor");
+	ICharacter * igor = new Character("Igoer des objets Animal ne sert pas à grand-chose au final. Ils ne font aucun bruit !
+Afin d’éviter les erreurs potentielles, la classe Animal de base ne doit pas être instanciable. Modifiez-la afin que personne ne puisse l’instancierr");
 	Character *	jessica = new Character("Jessica");
 
 	std::cout << std::endl << "-- EQUIPPING CHARACTERS" << std::endl;
