@@ -6,13 +6,23 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:21 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/17 14:53:38 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/17 15:24:40 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Colors.hpp"
 #include <stdexcept>
+
+Bureaucrat::Bureaucrat( void ) : _name("No_name"), _grade(1)
+{
+	std::cout << BGREEN << "Default constructor called !" << RESET << std::endl;
+}
+
+Bureaucrat::Bureaucrat( const Bureaucrat & src ) : _name(src.getName()), _grade(src.getGrade())
+{
+	std::cout << BYELLOW << "Copy constructor called !" << RESET << std::endl;
+}
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name)
 {
@@ -31,6 +41,14 @@ Bureaucrat::~Bureaucrat()
 {
 	std::cout << BHRED << this->_name << RESET
 	<< BRED << ", was destroyed." << RESET << std::endl;
+}
+
+Bureaucrat	&Bureaucrat::operator=( const Bureaucrat & rhs )
+{
+	std::cout << BHYELLOW << "Copy assignment called !" << RESET << std::endl;
+	std::cout << BHRED << "You cannot change the name because is a const variable." << RESET << std::endl;
+	this->_grade = rhs.getGrade();
+	return (*this);
 }
 
 int	Bureaucrat::getGrade( void ) const

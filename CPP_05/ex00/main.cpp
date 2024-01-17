@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/17 14:52:48 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/17 15:23:44 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@ void display_err(const std::exception &e)
 
 int main(void)
 {
+	display_big_line("CONSTRUCTOR");
+	{
+		Bureaucrat defaultConstructor;
+		Bureaucrat j2k("J2K", 18);
+		Bureaucrat copyj2k(j2k);
+		defaultConstructor = j2k;
+	}
+
 	display_big_line("INIT ERROR");
 	{
 		try

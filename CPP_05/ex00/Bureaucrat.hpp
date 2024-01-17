@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:24 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/17 13:16:53 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/17 15:22:00 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ private:
 	std::string const	_name;
 	int	_grade;
 public:
+	Bureaucrat( void );
 	Bureaucrat( std::string name, int grade );
+	Bureaucrat( const Bureaucrat & src );
 	~Bureaucrat();
 
+	Bureaucrat	&operator=( const Bureaucrat & rhs );
 	std::string	getName( void ) const;
 	int			getGrade( void ) const;
 
