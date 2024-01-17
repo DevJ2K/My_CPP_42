@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/17 16:51:12 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/17 17:19:24 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,58 @@ int main(void)
 		Form basic("Formulaire", 130, 100);
 		Form copy(basic);
 		defaultConstructor = basic;
+	}
+	display_big_line("GRADE TOO HIGH ERROR");
+	{
+		try
+		{
+			Form basic("ERR", 0, 0);
+		}
+		catch(const std::exception& e)
+		{
+			display_err(e);
+		}
+
+	}
+	display_big_line("GRADE TOO LOW ERROR");
+	{
+		try
+		{
+			Form basic("ERR", 151, 151);
+		}
+		catch(const std::exception& e)
+		{
+			display_err(e);
+		}
+
+	}
+	display_big_line("GENIUS FORM");
+	{
+		Bureaucrat genius("Genius", 5);
+		Form geniusForm("FormForGenius", 25, 10);
+		genius.signForm(geniusForm);
+		try
+		{
+			genius.signForm(geniusForm);
+		}
+		catch(const std::exception& e)
+		{
+			display_err(e);
+		}
+
+	}
+	display_big_line("TOO DUMB FORM");
+	{
+		Bureaucrat stupid("Stupid", 145);
+		Form geniusForm("FormForGenius", 25, 10);
+		try
+		{
+			stupid.signForm(geniusForm);
+		}
+		catch(const std::exception& e)
+		{
+			display_err(e);
+		}
+
 	}
 }
