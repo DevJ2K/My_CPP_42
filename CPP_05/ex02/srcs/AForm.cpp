@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:25:56 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/18 14:15:19 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/18 19:34:21 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ AForm::AForm( const AForm & src ) :
 AForm::~AForm()
 {
 	std::cout << BHRED << this->_name << RESET
-	<< BRED << " form was destroyed." << RESET << std::endl;
+	<< BRED << " AForm has been destroyed." << RESET << std::endl;
 }
 
 AForm&	AForm::operator=( const AForm & rhs )

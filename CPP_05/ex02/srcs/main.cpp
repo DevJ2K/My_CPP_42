@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/18 19:06:15 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/18 19:36:03 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void test_form(AForm *form)
 	display_sub_line("INVALID GRADE");
 	{
 		Bureaucrat stupid("Stupid", 150);
+		std::cout << stupid;
 		try
 		{
 			stupid.signForm(*form);
@@ -87,7 +88,10 @@ void test_form(AForm *form)
 	display_sub_line("CAN EXECUTE");
 	{
 		Bureaucrat genius("Genius", 1);
+		std::cout << genius;
+		std::cout << *form;
 		genius.signForm(*form);
+		std::cout << *form;
 		genius.executeForm(*form);
 	}
 }

@@ -6,12 +6,13 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:19:10 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/18 14:32:20 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/18 19:20:03 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include "Colors.hpp"
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm() :
 	AForm("lambda", 72, 45),
@@ -45,7 +46,14 @@ RobotomyRequestForm& 	RobotomyRequestForm::operator=( RobotomyRequestForm const 
 
 void	RobotomyRequestForm::customExecute( void ) const
 {
-	std::cout << "I executed Robotomy Code !" << std::endl;
+	std::srand(time(NULL));
+	int nb = std::rand() % 2; // Un nombre entre 0 et 1.
+	if (nb)
+		std::cout << BHGREEN << this->getTarget() << RESET << BHWHITE
+		<< " has been robotomized !" << RESET << std::endl;
+	else
+		std::cout << BHWHITE << "Failed to robotomize the target : " << RESET
+		<< BHRED << this->getTarget() << std::endl;
 }
 
 std::string	RobotomyRequestForm::getTarget( void ) const

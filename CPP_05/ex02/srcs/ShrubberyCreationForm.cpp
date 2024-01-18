@@ -6,12 +6,14 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:19:10 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/18 14:16:15 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/18 19:33:12 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "Colors.hpp"
+#include <iostream>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() :
 	AForm("lambda", 145, 137),
@@ -45,7 +47,19 @@ ShrubberyCreationForm& 	ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 
 void	ShrubberyCreationForm::customExecute( void ) const
 {
-	std::cout << "I executed Shrubbery Code !" << std::endl;
+	std::string filename = this->getTarget() + "_shrubbery";
+	std::string asciiTree =  "  ^  \n / \\ \n/___\\\n";
+	std::ofstream ofs(filename.c_str());
+	if (!ofs)
+	{
+		std::cerr << BHRED << "Failed to open the file : " << filename << RESET << std::endl;
+		return ;
+	}
+	ofs << asciiTree;
+	std::cout << BHYELLOW << "You're ASCII tree has been succesfully created in : " << RESET
+	<< BHGREEN << filename << std::endl;
+	std::cout << GREEN << asciiTree << RESET << std::endl;
+	ofs.close();
 }
 
 std::string	ShrubberyCreationForm::getTarget( void ) const

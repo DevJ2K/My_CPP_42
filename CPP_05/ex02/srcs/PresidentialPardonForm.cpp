@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:19:10 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/18 19:05:13 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/18 19:09:34 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ PresidentialPardonForm& 	PresidentialPardonForm::operator=( PresidentialPardonFo
 void	PresidentialPardonForm::customExecute( void ) const
 {
 	std::cout << BHMAG << this->_target << RESET << BHWHITE
-	<<  " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	<<  " has been pardoned by " << RESET
+	<< BHBLUE << "Zaphod Beeblebrox" << RESET << "." << std::endl;
 }
 
 std::string	PresidentialPardonForm::getTarget( void ) const
