@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/17 17:19:24 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:02:18 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,24 @@ int main(void)
 		{
 			display_err(e);
 		}
-
+	}
+	display_big_line("CLASSIC TEST FORM");
+	{
+		Bureaucrat randomBureaucrat("Random", 47);
+		Form formulaire("Formulaire", 45, 20);
+		try
+		{
+			randomBureaucrat.signForm(formulaire);
+		}
+		catch(const std::exception& e)
+		{
+			display_err(e);
+		}
+		for (size_t i = 0; i < 3; i++)
+		{
+			randomBureaucrat.increaseGrade();
+			std::cout << randomBureaucrat;
+		}
+		randomBureaucrat.signForm(formulaire);
 	}
 }
