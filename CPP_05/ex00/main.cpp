@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/17 15:23:44 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/19 09:19:50 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int main(void)
 			display_err(e);
 		}
 	}
-	display_big_line("DECREMENT ERROR");
+	display_big_line("EVERYTHING GOOD");
 	{
 		Bureaucrat good("J2K", 5);
 		for (size_t i = 0; i < 2; i++)

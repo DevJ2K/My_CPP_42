@@ -44,7 +44,7 @@ $(NAME):	$(OBJS)
 				@echo "$(GREEN)Success compilation of $(NAME) !$(DEF_COLOR)"
 
 clean:
-				@$(RM) $(OBJS)
+				@$(RM) $(OBJS) *_shrubbery
 				@echo "$(YELLOW)rm of $(OBJS).$(DEF_COLOR)"
 
 fclean: 	clean

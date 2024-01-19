@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/18 10:02:18 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/19 09:27:31 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,41 +78,19 @@ int main(void)
 		Bureaucrat genius("Genius", 5);
 		Form geniusForm("FormForGenius", 25, 10);
 		genius.signForm(geniusForm);
-		try
-		{
-			genius.signForm(geniusForm);
-		}
-		catch(const std::exception& e)
-		{
-			display_err(e);
-		}
-
+		genius.signForm(geniusForm);
 	}
 	display_big_line("TOO DUMB FORM");
 	{
 		Bureaucrat stupid("Stupid", 145);
 		Form geniusForm("FormForGenius", 25, 10);
-		try
-		{
-			stupid.signForm(geniusForm);
-		}
-		catch(const std::exception& e)
-		{
-			display_err(e);
-		}
+		stupid.signForm(geniusForm);
 	}
 	display_big_line("CLASSIC TEST FORM");
 	{
 		Bureaucrat randomBureaucrat("Random", 47);
 		Form formulaire("Formulaire", 45, 20);
-		try
-		{
-			randomBureaucrat.signForm(formulaire);
-		}
-		catch(const std::exception& e)
-		{
-			display_err(e);
-		}
+		randomBureaucrat.signForm(formulaire);
 		for (size_t i = 0; i < 3; i++)
 		{
 			randomBureaucrat.increaseGrade();

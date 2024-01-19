@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/18 19:36:03 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/19 09:40:16 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,22 +68,8 @@ void test_form(AForm *form)
 	{
 		Bureaucrat stupid("Stupid", 150);
 		std::cout << stupid;
-		try
-		{
-			stupid.signForm(*form);
-		}
-		catch (const std::exception &e)
-		{
-			display_err(e);
-		}
-		try
-		{
-			stupid.executeForm(*form);
-		}
-		catch (const std::exception &e)
-		{
-			display_err(e);
-		}
+		stupid.signForm(*form);
+		stupid.executeForm(*form);
 	}
 	display_sub_line("CAN EXECUTE");
 	{
