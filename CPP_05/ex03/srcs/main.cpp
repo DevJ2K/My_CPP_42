@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:57:27 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/18 21:00:07 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/19 10:22:18 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int main(void)
 		{
 			display_err(e);
 		}
-
 		delete form1;
 		delete form2;
 		delete form3;

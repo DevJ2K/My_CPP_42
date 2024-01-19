@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 19:44:04 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/18 20:10:05 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/19 09:54:21 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ public:
 		public:
 			virtual const char *what() const throw();
 	};
+
+	AForm*	_createRobotomyForm( std::string const & target ) const;
+	AForm*	_createShrubberyForm( std::string const & target ) const;
+	AForm*	_createPresidentialForm( std::string const & target ) const;
 
 
 	AForm*	makeForm( std::string formName, std::string target );
