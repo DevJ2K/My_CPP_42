@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 22:27:56 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/22 23:12:47 by tajavon          ###   ########.fr       */
+/*   Created: 2024/01/22 23:10:21 by tajavon           #+#    #+#             */
+/*   Updated: 2024/01/22 23:25:16 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER
-# define WHATEVER
+#include <iostream>
 
-template <typename T>
-void	swap( T &a, T &b )
+int	main(void)
 {
-	T tmp = a;
-	a = b;
-	b = tmp;
-}
+	int *a = new int();
 
-template <typename T>
-T const &	min(T const & a, T const & b )
-{
-	return (a < b ? a : b);
+	std::cout << *a << std::endl;
 }
-
-template <typename T>
-T const &	max(T const & a, T const & b )
-{
-	return (a > b ? a : b);
-}
-
-#endif

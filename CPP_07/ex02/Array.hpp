@@ -1,36 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 22:27:56 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/22 23:12:47 by tajavon          ###   ########.fr       */
+/*   Created: 2024/01/22 23:10:19 by tajavon           #+#    #+#             */
+/*   Updated: 2024/01/22 23:29:48 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER
-# define WHATEVER
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
+
+#include <exception>
 
 template <typename T>
-void	swap( T &a, T &b )
+class Array
 {
-	T tmp = a;
-	a = b;
-	b = tmp;
+private:
+	T*	_array;
+	int	_size;
+public:
+	Array<T>();
+	Array<T>( unsigned int n );
+	Array<T>( Array<T> const & src );
+	~Array<T>();
+
+	Array<T>	&operator=( Array<T> const & rhs );
+
+	class IndexOutOfRangeException : public std::exception
+	{
+		public:
+			virtual const char	*what() const throw();
+	}
+
+	int	size( void ) const;
+};
+
+Array::Array(/* args */)
+{
 }
 
-template <typename T>
-T const &	min(T const & a, T const & b )
+Array::~Array()
 {
-	return (a < b ? a : b);
-}
-
-template <typename T>
-T const &	max(T const & a, T const & b )
-{
-	return (a > b ? a : b);
 }
 
 #endif
