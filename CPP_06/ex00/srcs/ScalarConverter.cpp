@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:33:30 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/22 18:31:08 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/22 18:32:28 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static e_type	getType( std::string value )
 {
 	if (value.length() == 1 && !std::isdigit(value[0]))
 		return (CHAR);
-	else if (value.length() == 1 && isdigit(value[0]))
+	else if (value.length() >= 1)
 		return (INT);
 	else if (value.length() == 3 && value[0] == 'f' && value[1] == 'f' && value[2] == 'f')
 		return (FLOAT);
