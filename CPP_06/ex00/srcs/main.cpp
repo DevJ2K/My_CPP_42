@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:36:57 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/23 12:02:40 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/23 14:52:13 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,6 @@ int	main(int argc, char **argv)
 {
 	if (argc != 2)
 		return (0);
-
-	enum e_type
-{
-	CHAR = 1,
-	INT = 2,
-	FLOAT = 3,
-	DOUBLE = 4,
-	INVALID = 5
-};
 
 	std::cout << BHCYAN << "======ENUMTYPE======" << std::endl;
 	std::cout << "CHAR : 1" << std::endl;
