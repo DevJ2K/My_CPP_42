@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:33:30 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/23 15:23:15 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/23 15:33:43 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@ static bool isInNanFormat( std::string value )
 	return (value == "nan" || value == "NaN");
 }
 
+static bool isInNanfFormat( std::string value )
+{
+	return (value == "nanf" || value == "NaNf");
+}
+
 static e_type	getType( std::string value )
 {
 	if (value.length() == 1 && !std::isdigit(value[0]))
@@ -98,6 +103,8 @@ static e_type	getType( std::string value )
 		return (INF);
 	else if (isInNanFormat(value))
 		return (NAN);
+	else if (isInNanfFormat(value))
+		return (NANF);
 	else
 		return (INVALID);
 }
@@ -111,8 +118,9 @@ static void	display_format( e_type type )
 	std::cout << BHGREEN "DOUBLE : 4" RESET << std::endl;
 	std::cout << BHYELLOW "INFF : 5" RESET << std::endl;
 	std::cout << BYELLOW "INF : 6" RESET << std::endl;
-	std::cout << BRED "NAN : 7" RESET << std::endl;
-	std::cout << BHRED "INVALID : 8" RESET << std::endl;
+	std::cout << BRED "NANF : 7" RESET << std::endl;
+	std::cout << BRED "NAN : 8" RESET << std::endl;
+	std::cout << BHRED "INVALID : 9" RESET << std::endl;
 	std::cout << BHWHITE "====================" << RESET << std::endl;
 	std::cout << BHWHITE << "INPUT TYPE : " RESET;
 	switch (type)
@@ -134,6 +142,9 @@ static void	display_format( e_type type )
 			break;
 		case INF:
 			std::cout << BYELLOW "DOUBLE - INF" RESET << std::endl;
+			break;
+		case NANF:
+			std::cout << BRED "NANF" RESET << std::endl;
 			break;
 		case NAN:
 			std::cout << BRED "NAN" RESET << std::endl;
@@ -244,6 +255,12 @@ void	ScalarConverter::convert( std::string value )
 		std::cout << "int: " << "undefined behavior" << std::endl;
 		std::cout << "float: " << static_cast<float>(doubleInf) << "f" << std::endl;
 		std::cout << "double: " << doubleInf << std::endl;
+		break;
+	case NANF:
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
 		break;
 	case NAN:
 		std::cout << "char: impossible" << std::endl;

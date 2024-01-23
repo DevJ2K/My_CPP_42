@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:33:33 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/23 14:59:36 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/23 15:32:31 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ enum e_type
 	DOUBLE = 4,
 	INFF = 5,
 	INF = 6,
-	NAN = 7,
-	INVALID = 8
+	NANF = 7,
+	NAN = 8,
+	INVALID = 9
 };
 
 template <typename T>
@@ -50,12 +51,9 @@ bool	notOverflow( std::string value )
 class ScalarConverter
 {
 private:
-
 	ScalarConverter();
-
 public:
 	~ScalarConverter();
-
 	static void	convert( std::string value );
 
 };
