@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:33:30 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/23 15:14:49 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/23 15:23:15 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,52 @@ static e_type	getType( std::string value )
 		return (INVALID);
 }
 
+static void	display_format( e_type type )
+{
+	std::cout << BHCYAN << "======ENUMTYPE======" << std::endl;
+	std::cout << BHMAG "CHAR : 1" RESET << std::endl;
+	std::cout << BHBLUE "INT : 2" RESET << std::endl;
+	std::cout << BHCYAN "FLOAT : 3" RESET << std::endl;
+	std::cout << BHGREEN "DOUBLE : 4" RESET << std::endl;
+	std::cout << BHYELLOW "INFF : 5" RESET << std::endl;
+	std::cout << BYELLOW "INF : 6" RESET << std::endl;
+	std::cout << BRED "NAN : 7" RESET << std::endl;
+	std::cout << BHRED "INVALID : 8" RESET << std::endl;
+	std::cout << BHWHITE "====================" << RESET << std::endl;
+	std::cout << BHWHITE << "INPUT TYPE : " RESET;
+	switch (type)
+	{
+		case CHAR:
+			std::cout << BHMAG "CHAR" RESET << std::endl;
+			break;
+		case INT:
+			std::cout << BHBLUE "INT" RESET << std::endl;
+			break;
+		case FLOAT:
+			std::cout << BHCYAN "FLOAT" RESET << std::endl;
+			break;
+		case DOUBLE:
+			std::cout << BHGREEN "DOUBLE" RESET << std::endl;
+			break;
+		case INFF:
+			std::cout << BHYELLOW "FLOAT - INFF" RESET << std::endl;
+			break;
+		case INF:
+			std::cout << BYELLOW "DOUBLE - INF" RESET << std::endl;
+			break;
+		case NAN:
+			std::cout << BRED "NAN" RESET << std::endl;
+			break;
+		case INVALID:
+			std::cout << BHRED "INVALID" RESET << std::endl;
+			break;
+	}
+}
+
 void	ScalarConverter::convert( std::string value )
 {
 	e_type type = getType(value);
-	std::cout << BHWHITE << "TYPE : " RESET BHCYAN << type << RESET << std::endl;
-
+	display_format(type);
 	switch (type)
 	{
 	case CHAR:
