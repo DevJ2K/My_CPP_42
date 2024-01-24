@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 23:10:19 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/23 10:50:28 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/24 11:09:02 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 #include "Colors.hpp"
 
-template <typename T>
+template <typename T = int>
 class Array
 {
 private:
@@ -83,6 +83,11 @@ public:
 		return (this->_size);
 	}
 
+	T*	getArray( void ) const
+	{
+		return (this->_array);
+	}
+
 	void	display_array( void ) const
 	{
 		std::cout << BHWHITE << "[";
@@ -96,7 +101,6 @@ public:
 	}
 };
 
-// std::ostream & operator<<(std::ostream & o, Array<T> const & rhs);
 
 template <typename T>
 bool	&operator!=(int nb, Array<T> const & rhs )

@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:16:51 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/23 10:49:00 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/24 11:11:03 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void display_err(const std::exception &e)
 	std::cerr << BHRED << "An error was catch: " << RESET BRED << e.what() << RESET << std::endl;
 }
 
-
-#define MAX_VAL 750
 int main(int, char**)
 {
 	display_sub_line("Called constructor");
