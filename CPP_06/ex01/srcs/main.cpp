@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:55:02 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/23 16:42:18 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/24 09:08:31 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ int	main(void)
 	display_sub_line("INIT DATA");
 	Data	*data = new Data(14, "June", 2005);
 	uintptr_t	ptr = Serializer::serialize(data);
-	std::cout << "UINTPTR_T : " << ptr << std::endl;
+		std::cout << BHMAG << "(DATA *)" << &(*data) << " -> (UINTPTR_T) : " RESET BHWHITE << ptr << std::endl;
+
 
 	display_sub_line("REINTERPRET (UNITPTR_T) to (DATA *)");
 	Data	*data2;
 	data2 = Data::deserialize(ptr);
+	std::cout << BHYELLOW << "(UINTPTR_T)" << ptr << " -> (DATA *) : " RESET BHWHITE << &(*data2) << std::endl;
 	data2->displayData();
 
 	delete data;

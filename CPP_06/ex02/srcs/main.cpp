@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:16:14 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/23 23:12:43 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/24 09:15:05 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ Base* generate(void)
 	}
 }
 
+// Echouer un cast vers un pointer renvoie NULL
 void identify(Base *p)
 {
 
@@ -89,6 +90,7 @@ void identify(Base *p)
 
 }
 
+// Echouer un cast vers une reference renvoie une erreur catchable du type "bad_cast"
 void identify(Base &p)
 {
 	try
@@ -123,16 +125,13 @@ void identify(Base &p)
 int	main(void)
 {
 
-	for (size_t i = 0; i < 5; i++)
-	{
-		display_sub_line("Generate Random ");
-		Base* base_random = generate();
-		std::cout << BHWHITE << "Find identity by pointer." << std::endl;
-		identify(base_random);
-		std::cout << BHWHITE << "Find identity by reference." << std::endl;
-		identify(*base_random);
-		delete base_random;
-	}
-
-
+	display_sub_line("Generate Random ");
+	Base* base_random = generate();
+	std::cout << std::endl;
+	std::cout << BHWHITE << "Find identity by pointer." << std::endl;
+	identify(base_random);
+	std::cout << std::endl;
+	std::cout << BHWHITE << "Find identity by reference." << std::endl;
+	identify(*base_random);
+	delete base_random;
 }

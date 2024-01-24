@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:08:47 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/23 17:09:05 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/24 09:13:55 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 C::C() : Base()
 {
-	this->displayType();
+	std::cout << BHGREEN << "New instance of class [C] was created !"
+	<< RESET << std::endl;
 }
 
 C::~C()
