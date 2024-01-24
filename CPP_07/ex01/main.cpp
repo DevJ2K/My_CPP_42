@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:32:51 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/24 09:51:19 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/24 09:52:23 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,4 @@ int	main(int argc, char **argv)
 	};
 	iter(tabString, 3, &display_string);
 	std::cout << std::endl;
-
-
-
-
 }
