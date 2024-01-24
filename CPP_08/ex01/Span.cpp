@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:48:38 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/24 17:13:08 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:18:25 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ unsigned int	Span::getNbElements( void ) const
 
 void	Span::addNumber( int nb )
 {
+	// Implementer un range of iterator
 	if (this->_nbElements >= this->_size)
 		throw TooManyNumbersException();
 	this->_list.push_back(nb);
