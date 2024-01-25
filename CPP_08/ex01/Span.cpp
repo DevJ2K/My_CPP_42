@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:48:38 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/25 13:09:17 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/25 16:03:14 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <algorithm>
 
-Span::Span() : _maxSize(0)
+Span::Span() : _maxSize(1024)
 {
 }
 
@@ -64,20 +64,12 @@ std::list<int>	Span::getList( void ) const
 
 void	Span::addNumbers( std::list<int>::const_iterator it_begin, std::list<int>::const_iterator it_end )
 {
-	std::for_each(it_begin, it_end, addNumber);
-	// for ( std::list<int>::const_iterator it = it_begin; it != it_end; it++)
-	// {
-	// 	std::cout << *it << " ";
-	// 	// // if (this->_nbElements >= this->_size)
-	// 	// // 	throw TooManyNumbersException();
-	// 	// this->_list.push_back(*it);
-	// 	this->addNumber(*it);
-	// }
+	for ( std::list<int>::const_iterator it = it_begin; it != it_end; it++)
+		this->addNumber(*it);
 }
 
 void	Span::addNumber( int nb )
 {
-	// Implementer un range of iterator
 	if (this->getNbElements() >= this->_maxSize)
 		throw TooManyNumbersException();
 	this->_list.push_back(nb);
