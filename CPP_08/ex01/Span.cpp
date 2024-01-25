@@ -6,18 +6,19 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:48:38 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/24 17:18:25 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/25 13:09:17 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <iostream>
+#include <algorithm>
 
-Span::Span()
+Span::Span() : _maxSize(0)
 {
 }
 
-Span::Span( unsigned int N ) : _nbElements(0), _size(N)
+Span::Span( unsigned int N ) : _maxSize(N)
 {
 }
 Span::Span( Span const & src )
@@ -31,10 +32,7 @@ Span::~Span()
 
 Span	&Span::operator=( Span const & rhs )
 {
-	this->_nbElements = rhs.getNbElements();
-	this->_size = rhs.getSize();
-	for (unsigned int i = 0; i < rhs.getNbElements(); i++)
-		this->addNumber(rhs[i]);
+	this->_list = rhs.getList();
 	return (*this);
 }
 
@@ -49,32 +47,50 @@ int		Span::operator[]( unsigned int index ) const
 	return (*it);
 }
 
-unsigned int	Span::getSize( void ) const
+unsigned int	Span::getMaxSize( void ) const
 {
-	return (this->_size);
+	return (this->_maxSize);
 }
-unsigned int	Span::getNbElements( void ) const
+
+std::size_t	Span::getNbElements( void ) const
 {
-	return (this->_nbElements);
+	return (this->_list.size());
+}
+
+std::list<int>	Span::getList( void ) const
+{
+	return (this->_list);
+}
+
+void	Span::addNumbers( std::list<int>::const_iterator it_begin, std::list<int>::const_iterator it_end )
+{
+	std::for_each(it_begin, it_end, addNumber);
+	// for ( std::list<int>::const_iterator it = it_begin; it != it_end; it++)
+	// {
+	// 	std::cout << *it << " ";
+	// 	// // if (this->_nbElements >= this->_size)
+	// 	// // 	throw TooManyNumbersException();
+	// 	// this->_list.push_back(*it);
+	// 	this->addNumber(*it);
+	// }
 }
 
 void	Span::addNumber( int nb )
 {
 	// Implementer un range of iterator
-	if (this->_nbElements >= this->_size)
+	if (this->getNbElements() >= this->_maxSize)
 		throw TooManyNumbersException();
 	this->_list.push_back(nb);
-	this->_nbElements++;
 }
 
 int	Span::shortestSpan( void ) const
 {
-	if (this->_nbElements <= 1)
+	if (this->getNbElements() <= 1)
 		throw NotEnoughNumbersException();
 	int	min_span = this->longestSpan();
-	for (unsigned int i = 0; i < this->_nbElements; i++)
+	for (unsigned int i = 0; i < this->getNbElements(); i++)
 	{
-		for (unsigned int j = 0; j < this->_nbElements; j++)
+		for (unsigned int j = 0; j < this->getNbElements(); j++)
 		{
 			if (i != j)
 			{
@@ -87,11 +103,11 @@ int	Span::shortestSpan( void ) const
 }
 int	Span::longestSpan( void ) const
 {
-	if (this->_nbElements <= 1)
+	if (this->getNbElements() <= 1)
 		throw NotEnoughNumbersException();
 	int	max = (*this)[0];
 	int	min = (*this)[0];
-	for (unsigned int i = 0; i < this->_nbElements; i++)
+	for (unsigned int i = 0; i < this->getNbElements(); i++)
 	{
 		if ((*this)[i] > max)
 			max = (*this)[i];

@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:48:41 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/24 16:55:07 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/25 13:03:01 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ class Span
 {
 private:
 	std::list<int>	_list;
-	unsigned int	_nbElements;
-	unsigned int	_size;
+	unsigned int	_maxSize;
 	Span();
 public:
 	Span( unsigned int N );
@@ -32,8 +31,11 @@ public:
 	int		operator[]( unsigned int index ) const;
 
 	void	addNumber( int nb );
-	unsigned int	getSize( void ) const;
-	unsigned int	getNbElements( void ) const;
+	void	addNumbers( std::list<int>::const_iterator it, std::list<int>::const_iterator ite);
+
+	std::list<int>	getList( void ) const;
+	unsigned int	getMaxSize( void ) const;
+	std::size_t	getNbElements( void ) const;
 
 	int	shortestSpan( void ) const;
 	int	longestSpan( void ) const;
