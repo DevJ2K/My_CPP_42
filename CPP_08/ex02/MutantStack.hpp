@@ -6,54 +6,83 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:16:25 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/24 22:46:39 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/25 12:06:12 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
-#include <iterator>
-#include <algorithm>
 #include <stack>
+#include <iostream>
 // https://cplusplus.com/reference/stack/stack/?kw=stack
 
 
 template <typename T, class Container = std::deque<T> >
 class MutantStack : public std::stack< T, Container >
 {
-private:
-	std::stack<T>	_stack;
-public:
-	MutantStack();
-	MutantStack( MutantStack const & src );
-	~MutantStack();
+	public:
+		MutantStack<T, Container>() : std::stack< T, Container >()
+		{
+		}
 
-	typedef typename std::iterator	iterator;
+		MutantStack<T, Container>( MutantStack<T, Container> const & src )
+		{
+			if (*this != src )
+				*this = src;
+		}
 
-	bool		empty( void ) const
-	{
-	}
-	std::size_t	size( void ) const;
-	// T& const	top( void ) const;
-	T&			top( void ) const;
-	void		push( T const & val );
-	void		emplace( T& args ); // Check
-	void		pop( void );
-	void		swap( std::stack<T> x );
+		~MutantStack<T, Container>()
+		{
+		}
 
-	std::iterator	begin( void ) const;
-	std::iterator	end( void ) const;
+		MutantStack<T, Container>	&operator=( MutantStack<T, Container> const & rhs )
+		{
+			if ( *this != rhs )
+				this->c = rhs.c;
+			return (*this);
+		}
 
+		class InvalidSizeException : public std::exception
+		{
+		public:
+			virtual const char	*what() const throw()
+			{
+				return ("Invalid size");
+			}
+		};
+
+
+		typedef typename Container::iterator		iterator;
+		typedef typename Container::const_iterator	const_iterator;
+
+		iterator	begin( void )
+		{
+			return (this->c.begin());
+		}
+
+		void emplace(T const& val)
+		{
+			this->c.push_back(val);
+		}
+
+		void	pop( void )
+		{
+			if (!this->c.empty())
+				return (this->c.pop_back());
+			throw InvalidSizeException();
+		}
+
+		iterator	end( void )
+		{
+			return (this->c.end());
+		}
+
+		void	swap(MutantStack<T, Container>& x)
+		{
+			this->c.swap(x.c);
+		}
 };
-// (constructor)	Construct stack
-// empty	Test whether container is empty //OK
-// size	Return size //OK
-// top	Access next element //OK
-// push	Insert element // OK
-// emplace	Construct and insert element
-// pop	Remove top element
-// swap	Swap contents
 
 
 #endif
