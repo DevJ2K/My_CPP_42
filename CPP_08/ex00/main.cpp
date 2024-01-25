@@ -6,25 +6,28 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:47:20 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/24 14:45:13 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/25 16:11:14 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <list>
 #include <iterator>
+#include <iostream>
 #include "easyfind.hpp"
 #include "Colors.hpp"
 
 int	main( void )
 {
+	int	nb_elements = 30;
+
 	std::list<int> tabInt;
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < nb_elements; i++)
 	{
 		if (i % 2 == 0)
 			tabInt.push_back(i);
 	}
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < nb_elements; i++)
 	{
 		try
 		{

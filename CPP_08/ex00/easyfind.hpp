@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:47:37 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/24 22:34:17 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/25 16:09:35 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 # define EASYFIND_HPP
 
 #include <algorithm>
-#include <iostream>
 #include <exception>
 #include <stdexcept>
-#include <vector>
-#include <map>
 #include <list>
 
 template <typename T>
