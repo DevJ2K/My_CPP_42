@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:16:25 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/25 12:06:12 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/25 12:17:24 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,8 @@ class MutantStack : public std::stack< T, Container >
 			}
 		};
 
-
 		typedef typename Container::iterator		iterator;
-		typedef typename Container::const_iterator	const_iterator;
+
 
 		iterator	begin( void )
 		{
