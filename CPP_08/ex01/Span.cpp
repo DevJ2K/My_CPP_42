@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:48:38 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/25 16:03:14 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/25 16:25:34 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,19 +93,25 @@ int	Span::shortestSpan( void ) const
 	}
 	return (min_span);
 }
+
+// Source : https://cplusplus.com/reference/algorithm/max_element/
+// Source : https://cplusplus.com/reference/algorithm/min_element/
 int	Span::longestSpan( void ) const
 {
 	if (this->getNbElements() <= 1)
 		throw NotEnoughNumbersException();
-	int	max = (*this)[0];
-	int	min = (*this)[0];
-	for (unsigned int i = 0; i < this->getNbElements(); i++)
-	{
-		if ((*this)[i] > max)
-			max = (*this)[i];
-		if ((*this)[i] < min)
-			min = (*this)[i];
-	}
+	// int	max = (*this)[0];
+	// int	min = (*this)[0];
+
+	// for (unsigned int i = 0; i < this->getNbElements(); i++)
+	// {
+	// 	if ((*this)[i] > max)
+	// 		max = (*this)[i];
+	// 	if ((*this)[i] < min)
+	// 		min = (*this)[i];
+	// }
+	int min = *std::min_element(this->_list.begin(), this->_list.end());
+	int max = *std::max_element(this->_list.begin(), this->_list.end());
 	return (max - min);
 }
 
