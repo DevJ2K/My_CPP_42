@@ -21,7 +21,8 @@ WHITE = \033[1;97m
 
 ########################################
 ########## SOURCES
-SRCS	=	main.cpp
+SRCS	=	main.cpp \
+			BitcoinExchange.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
