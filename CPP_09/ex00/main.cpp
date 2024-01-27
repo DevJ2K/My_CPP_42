@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:41:01 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/26 16:23:56 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/27 14:01:45 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	main( int argc, char **argv )
 		BitcoinExchange btc(DATA_FILE ,argv[1]);
 	}
 	catch(const std::exception& e)
-	{
-		// std::cerr << e.what() << '\n';
+	{// std::cerr << e.what() << '\n';
 	}
 
 }
