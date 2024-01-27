@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 09:57:21 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/26 16:22:30 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/27 14:06:47 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ public:
 		public:
 			virtual const char	*what() const throw();
 	};
-
 };
-
 
 void	display_err( std::string err_msg );
 

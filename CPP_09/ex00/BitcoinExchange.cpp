@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 09:57:24 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/27 13:57:26 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/27 14:08:23 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,11 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <istream>
 
 static bool	open_success( std::ifstream & file, std::string filename )
 {
 	bool success = true;
-	if (file.fail())
-	{
-		display_err("Failed to open the file -> " + filename);
-		success = false;
-	}
-	else if (file.bad())
+	if (file.fail() || file.bad())
 	{
 		display_err("Failed to open the file -> " + filename);
 		success = false;
@@ -37,7 +31,6 @@ static bool	open_success( std::ifstream & file, std::string filename )
 		display_err("The input file is empty -> " + filename);
 		success = false;
 	}
-
 	if (success == false)
 	{
 		if (file.is_open())
@@ -65,12 +58,9 @@ static std::map<std::string, double>	get_data( const char * data_filename )
 	{
 		if (line.compare("date,exchange_rate") == 0)
 			continue ;
-
 		double	fvalue;
-		// std::cout << line.substr(11, line.length() - 10) << " | ";
 		std::istringstream iss(line.substr(11, line.length() - 10));
 		iss >> fvalue;
-		// std::cout << std::setprecision(9) << fvalue << std::endl;
 		if (!iss.eof() || iss.fail())
 			throw BitcoinExchange::BadDataValueException();
 
@@ -103,12 +93,21 @@ static bool	check_date_format( std::string date )
 	iss_month >> month;
 	iss_day >> day;
 
-	if ((!is_only_numbers(date.substr(0, 4)) || !iss_year.eof() || iss_year.fail() || (year < 0 || year > 9999)))
+	if ((!is_only_numbers(date.substr(0, 4))
+	|| !iss_year.eof() || iss_year.fail()
+	|| (year < 0 || year > 9999)))
 		return (display_err("Invalid year format => " + date.substr(0, 4)), false);
-	if ((!is_only_numbers(date.substr(5, 2)) || !iss_month.eof() || iss_month.fail() || (month < 1 || month > 12)))
+
+	if ((!is_only_numbers(date.substr(5, 2))
+	|| !iss_month.eof() || iss_month.fail()
+	|| (month < 1 || month > 12)))
 		return (display_err("Invalid month format => " + date.substr(5, 2)), false);
-	if ((!is_only_numbers(date.substr(8, 2)) || !iss_day.eof() || iss_day.fail() || (day < 1 || day > 31)))
+
+	if ((!is_only_numbers(date.substr(8, 2))
+	|| !iss_day.eof() || iss_day.fail()
+	|| (day < 1 || day > 31)))
 		return (display_err("Invalid day format => " + date.substr(8, 2)), false);
+
 	return (true);
 }
 
@@ -124,8 +123,6 @@ static bool	check_value_range( std::string value )
 		return (display_err("Not a positive number. Numbers need to be between 0 and 1000."), false);
 	if (nb < 0 || nb > 1000)
 		return (display_err("Too large a number. Numbers need to be between 0 and 1000."), false);
-
-	// std::cout << "VALEUR : " << nb << std::endl;
 	return (true);
 }
 
@@ -184,12 +181,9 @@ BitcoinExchange::BitcoinExchange( const char * data_file, const char * input_fil
 		if (date_found)
 			continue ;
 		if (std::max((*ite).first, line.substr(0, 10)) == line.substr(0, 10))
-		{
 			std::cout << std::setprecision(3) << line.substr(0, 10) << " => " << nb << " = " << (nb * (*ite).second) << std::endl;
-		}
 		else
 			display_err("No value found because the date is too old => " + line.substr(0, 10));
-
 	}
 }
 
@@ -205,5 +199,4 @@ const char	*BitcoinExchange::BadDataValueException::what() const throw()
 
 BitcoinExchange::~BitcoinExchange()
 {
-	// std::cout << "Destructor called" << std::endl;
 }
