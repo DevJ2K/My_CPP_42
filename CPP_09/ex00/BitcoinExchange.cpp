@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 09:57:24 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/27 14:08:23 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/28 17:11:46 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,16 @@ static bool	check_date_format( std::string date )
 	std::istringstream	iss_month(date.substr(5, 2));
 	std::istringstream	iss_day(date.substr(8, 2));
 
-	int	year;
-	int	month;
-	int	day;
+	unsigned int	year;
+	unsigned int	month;
+	unsigned int	day;
 
 	iss_year >> year;
 	iss_month >> month;
 	iss_day >> day;
+
+	if (date.substr(10) != " ")
+		return (display_err("Invalid date format => " + date), false);
 
 	if ((!is_only_numbers(date.substr(0, 4))
 	|| !iss_year.eof() || iss_year.fail()
@@ -156,7 +159,7 @@ BitcoinExchange::BitcoinExchange( const char * data_file, const char * input_fil
 			continue ;
 		}
 
-		else if (check_date_format(line.substr(0, 10)) == false)
+		else if (check_date_format(line.substr(0, 11)) == false)
 			continue ;
 
 		else if (check_value_range(line.substr(13)) == false)
@@ -173,7 +176,9 @@ BitcoinExchange::BitcoinExchange( const char * data_file, const char * input_fil
 		{
 			if (std::max((*ite).first, line.substr(0, 10)) == line.substr(0, 10))
 			{
-				std::cout << std::setprecision(3) << line.substr(0, 10) << " => " << nb << " = " << (nb * (*ite).second) << std::endl;
+				std::cout << line.substr(0, 10) << " => "
+				<< std::setprecision(4) << nb << " = "
+				<< std::setprecision(5) << (nb * (*ite).second) << std::endl;
 				date_found = true;
 			}
 			ite--;
