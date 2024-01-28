@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:10:18 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/27 22:34:39 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/28 02:49:24 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,36 @@ RPN::RPN( const char * polish_notation )
 		this->_mainStack.push(tmp_stack.top());
 		tmp_stack.pop();
 	}
-	displayStack();
+	if (DISPLAY_PROCESS)
+		displayStack();
+}
+
+RPN::RPN()
+{}
+
+RPN::RPN( RPN const & src)
+{
+	*this = src;
 }
 
 RPN::~RPN()
 {}
+
+RPN	&RPN::operator=( RPN const & rhs )
+{
+	this->_mainStack = rhs.getMainStack();
+	this->_calculStack = rhs.getCalculStack();
+	return (*this);
+}
+
+std::stack<CustomInt>	RPN::getMainStack( void ) const
+{
+	return (this->_mainStack);
+}
+std::stack<CustomInt>	RPN::getCalculStack( void ) const
+{
+	return (this->_calculStack);
+}
 
 static void	doOperation(std::stack<CustomInt> & stack_a, std::stack<CustomInt> & stack_b)
 {
@@ -63,7 +88,7 @@ static void	doOperation(std::stack<CustomInt> & stack_a, std::stack<CustomInt> &
 	{
 		std::cout << BHWHITE "OPERATION => " RESET << BHYELLOW
 		<< nb_2 << " " RESET BHMAG << sign << RESET " "
-		<< BHYELLOW << nb_1 << RESET << std::endl;
+		<< BHYELLOW << nb_1 << RESET << std::endl << std::endl;
 	}
 	if (sign == '+')
 		return (stack_a.push(CustomInt((nb_1 + nb_2), false)));
@@ -135,7 +160,8 @@ void	RPN::displayStack( void ) const
 	std::cout << BHWHITE;
 	for (size_t i = 0; i < SIZE_LINE; i++)
 		std::cout << "=";
-	std::cout << RESET << std::endl << std::endl;
+	std::cout << RESET << std::endl;
+	// << std::endl;
 }
 
 const char	*RPN::ValueErrorException::what() const throw()
