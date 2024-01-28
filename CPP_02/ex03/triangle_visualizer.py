@@ -1,8 +1,17 @@
-import matplotlib.pyplot as plt
+try:
+	import matplotlib.pyplot as plt
+except:
+	subprocess.run("pip install matplotlib", shell=True)
+	import matplotlib.pyplot as plt
+
 import numpy as np
 import subprocess
+import json
 
-own_input = False
+with open("config.json", "r") as fd:
+	data = json.load(fd)
+	own_input = data["own_input"]
+	point = data["point"]
 
 def plot_triangle(vertices, x, y):
 	# Ajouter le premier point à la fin pour fermer le triangle
@@ -33,7 +42,6 @@ def exec_coordonnees(point, x, y):
 	# Tracez le triangle
 	plot_triangle(triangle_vertices, x, y)
 
-# [0, 0], [1, 0], [0.5, 1]
 if (own_input):
 	point = []
 	for i in range(1, 4):
