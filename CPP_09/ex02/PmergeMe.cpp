@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 12:53:41 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 15:40:12 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/28 15:56:34 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ PmergeMe::PmergeMe( int nb_numbers, char **numbers_args )
 		iss >> nb;
 		if (!iss.eof() || iss.fail())
 			throw NotAnUintException();
-
 		// if (std::find(this->_list.begin(), this->_list.end(), nb) != this->_list.end())
 		// 	throw DuplicateException();
 		// if (std::find(this->_vector.begin(), this->_vector.end(), nb) != this->_vector.end())
