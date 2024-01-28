@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 21:56:39 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/27 22:15:38 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/28 02:53:00 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CUSTOM_INT_HPP
 
 #include <ostream>
-
+ 
 class CustomInt
 {
 private:

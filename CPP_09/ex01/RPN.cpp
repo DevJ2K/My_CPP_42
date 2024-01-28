@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:10:18 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 02:49:24 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/28 02:54:24 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ static void	doOperation(std::stack<CustomInt> & stack_a, std::stack<CustomInt> &
 
 void	RPN::executeCalcul( void )
 {
-	while (this->_mainStack.size() != 1)
+	while (this->_mainStack.size() != 1 || this->_calculStack.size() != 0)
 	{
 		while (!this->_mainStack.top().getIsSign())
 		{
