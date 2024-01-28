@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 12:53:41 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 15:56:34 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/28 16:04:04 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,10 @@ PmergeMe::PmergeMe( int nb_numbers, char **numbers_args )
 
 void	PmergeMe::displayBothLists( void ) const
 {
+	std::cout << BHWHITE "Is Sorted : "
+	<< (std::is_sorted(this->_list.begin(), this->_list.end()) ? (BHGREEN "YES") : (BHRED "NO"));
+	std::cout << RESET BHWHITE " : " RESET;
+
 	std::cout << BHYELLOW "std::list" RESET BHWHITE "<unsigned int>   [ " << RESET;
 	for (std::list<unsigned int>::const_iterator it = this->_list.begin();
 		it != this->_list.end();
@@ -86,6 +90,10 @@ void	PmergeMe::displayBothLists( void ) const
 		std::cout << BHYELLOW << *it << " " << RESET;
 	}
 	std::cout << BHWHITE << "[" << RESET << std::endl;
+
+	std::cout << BHWHITE "Is Sorted : "
+	<< (std::is_sorted(this->_vector.begin(), this->_vector.end()) ? (BHGREEN "YES") : (BHRED "NO"));
+	std::cout << RESET BHWHITE " : " RESET;
 
 	std::cout << BHMAG "std::vector" RESET BHWHITE "<unsigned int> [ " << RESET;
 	for (std::vector<unsigned int>::const_iterator it = this->_vector.begin();
