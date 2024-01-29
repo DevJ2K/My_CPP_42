@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 21:56:39 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 02:53:00 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:39:51 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 # define CUSTOM_INT_HPP
 
 #include <ostream>
- 
+
 class CustomInt
 {
 private:
-	int		_value;
+	double		_value;
 	bool	_isSign;
 	CustomInt();
 public:
-	CustomInt( int value, bool isSign );
+	CustomInt( double value, bool isSign );
 	CustomInt( CustomInt const & src );
 	~CustomInt();
 
 	CustomInt	&operator=( CustomInt const & rhs );
-	int		getValue( void ) const;
+	double		getValue( void ) const;
 	bool	getIsSign( void ) const;
 
 };

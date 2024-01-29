@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:04:51 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/27 22:14:52 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:39:44 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ CustomInt::CustomInt( CustomInt const & src )
 	*this = src;
 }
 
-CustomInt::CustomInt( int value, bool isSign ) : _value(value), _isSign(isSign)
+CustomInt::CustomInt( double value, bool isSign ) : _value(value), _isSign(isSign)
 {
 }
 
@@ -30,7 +30,7 @@ CustomInt::~CustomInt()
 {
 }
 
-int		CustomInt::getValue( void ) const
+double		CustomInt::getValue( void ) const
 {
 	return (this->_value);
 }

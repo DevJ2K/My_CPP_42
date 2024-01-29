@@ -6,13 +6,14 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:10:18 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/29 09:26:33 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:39:37 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 #include "Colors.hpp"
 #include <iostream>
+#include <iomanip>
 
 RPN::RPN( const char * polish_notation )
 {
@@ -80,9 +81,9 @@ static void	doOperation(std::stack<CustomInt> & stack_a, std::stack<CustomInt> &
 	char	sign = stack_a.top().getValue();
 	stack_a.pop();
 
-	int nb_1 = stack_b.top().getValue();
+	double nb_1 = stack_b.top().getValue();
 	stack_b.pop();
-	int nb_2 = stack_b.top().getValue();
+	double nb_2 = stack_b.top().getValue();
 	stack_b.pop();
 	if (DISPLAY_PROCESS)
 	{
@@ -138,7 +139,7 @@ void	RPN::displayStack( void ) const
 	std::cout << BHWHITE "MAIN_STACK   = [" RESET;
 	for (size_t i = copyStack.size(); i > 0; i--)
 	{
-		std::cout << BHCYAN "'" << tmpStack.top() << "'" RESET;
+		std::cout << BHCYAN "'" << std::setprecision(3) << tmpStack.top() << "'" RESET;
 		tmpStack.pop();
 		if (tmpStack.size() > 0)
 			std::cout << BHWHITE " " RESET;
@@ -150,7 +151,7 @@ void	RPN::displayStack( void ) const
 	std::cout << BHWHITE "CALCUL_STACK = [" RESET;
 	for (size_t i = copyStack.size(); i > 0; i--)
 	{
-		std::cout << BHCYAN "'" << tmpStack.top() << "'" RESET;
+		std::cout << BHCYAN "'" << std::setprecision(3) << tmpStack.top() << "'" RESET;
 		tmpStack.pop();
 		if (tmpStack.size() > 0)
 			std::cout << BHWHITE " " RESET;
