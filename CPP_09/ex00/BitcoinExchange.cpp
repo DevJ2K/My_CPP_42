@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 09:57:24 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/29 09:21:37 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 10:05:35 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,7 +208,9 @@ BitcoinExchange::BitcoinExchange( const char * data_file, const char * input_fil
 		if (date_found)
 			continue ;
 		if (std::max((*ite).first, line.substr(0, 10)) == line.substr(0, 10))
-			std::cout << std::setprecision(3) << line.substr(0, 10) << " => " << nb << " = " << (nb * (*ite).second) << std::endl;
+			std::cout << std::setprecision(3) << line.substr(0, 10) << " => "
+			<< std::setprecision(4) << nb << " = "
+			<< std::setprecision(5) << (nb * (*ite).second) << std::endl;
 		else
 			display_err("No value found because the date is too old => " + line.substr(0, 10));
 	}
