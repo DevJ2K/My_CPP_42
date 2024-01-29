@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 12:53:49 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 15:57:47 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:45:00 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,11 @@ private:
 	std::list<unsigned int>		_list;
 	std::vector<unsigned int>	_vector;
 
-	typedef std::chrono::high_resolution_clock::time_point time_point;
+	clock_t	_startTimeList;
+	clock_t	_startTimeVector;
 
-	time_point	_startTimeList;
-	time_point	_startTimeVector;
-
-	time_point	_endTimeList;
-	time_point	_endTimeVector;
+	clock_t	_endTimeList;
+	clock_t	_endTimeVector;
 
 	PmergeMe();
 	PmergeMe( PmergeMe const & src );

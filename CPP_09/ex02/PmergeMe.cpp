@@ -6,16 +6,15 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 12:53:41 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 16:04:04 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:58:01 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include "Colors.hpp"
-#include <chrono>
+#include <iomanip>
 #include <sstream>
 #include <iostream>
-#include <algorithm>
 
 PmergeMe::PmergeMe() : _list(0), _vector(0)
 {
@@ -34,6 +33,19 @@ static bool	only_digits( char *str )
 			return (false);
 	}
 	return (true);
+}
+
+template <typename T>
+static bool	is_sorted(T first, T last)
+{
+	if (first==last) return true;
+	T next = first;
+	while (++next!=last) {
+		if (*next<*first)
+		return false;
+		++first;
+	}
+	return true;
 }
 
 static void	display_big_line( std::string colors, std::string text )
@@ -79,7 +91,7 @@ PmergeMe::PmergeMe( int nb_numbers, char **numbers_args )
 void	PmergeMe::displayBothLists( void ) const
 {
 	std::cout << BHWHITE "Is Sorted : "
-	<< (std::is_sorted(this->_list.begin(), this->_list.end()) ? (BHGREEN "YES") : (BHRED "NO"));
+	<< (is_sorted(this->_list.begin(), this->_list.end()) ? (BHGREEN "YES") : (BHRED "NO"));
 	std::cout << RESET BHWHITE " : " RESET;
 
 	std::cout << BHYELLOW "std::list" RESET BHWHITE "<unsigned int>   [ " << RESET;
@@ -92,7 +104,7 @@ void	PmergeMe::displayBothLists( void ) const
 	std::cout << BHWHITE << "[" << RESET << std::endl;
 
 	std::cout << BHWHITE "Is Sorted : "
-	<< (std::is_sorted(this->_vector.begin(), this->_vector.end()) ? (BHGREEN "YES") : (BHRED "NO"));
+	<< (is_sorted(this->_vector.begin(), this->_vector.end()) ? (BHGREEN "YES") : (BHRED "NO"));
 	std::cout << RESET BHWHITE " : " RESET;
 
 	std::cout << BHMAG "std::vector" RESET BHWHITE "<unsigned int> [ " << RESET;
@@ -107,36 +119,31 @@ void	PmergeMe::displayBothLists( void ) const
 
 void	PmergeMe::displayTimeToSorted( void ) const
 {
-	std::chrono::microseconds duration_msList = std::chrono::duration_cast<std::chrono::microseconds>
-												(this->_endTimeList - this->_startTimeList);
 
-	std::chrono::microseconds duration_msVector = std::chrono::duration_cast<std::chrono::microseconds>
-												(this->_endTimeVector - this->_startTimeVector);
-
-	long long msList = duration_msList.count();
-	long long msVector = duration_msVector.count();
+	double msList = (static_cast<double>(this->_endTimeList - this->_startTimeList) / CLOCKS_PER_SEC);
+	double msVector = (static_cast<double>(this->_endTimeVector - this->_startTimeVector) / CLOCKS_PER_SEC);
 
 	std::cout << BHWHITE "Time to process a range of " RESET BHYELLOW
 	<< this->_list.size() << RESET BHWHITE " elements with " RESET BHYELLOW
 	"std::list" RESET BHWHITE "<unsigned int>   : " RESET <<
-	(msList <= msVector ? BHGREEN : BHRED) << msList << " us" RESET << std::endl;
+	(msList <= msVector ? BHGREEN : BHRED) << std::fixed << msList << "s" RESET << std::endl;
 
 	std::cout << BHWHITE "Time to process a range of " RESET BHMAG
 	<< this->_list.size() << RESET BHWHITE " elements with " RESET BHMAG
 	"std::vector" RESET BHWHITE "<unsigned int> : " RESET <<
-	(msVector <= msList ? BHGREEN : BHRED) << msVector << " us" RESET << std::endl;
+	(msVector <= msList ? BHGREEN : BHRED) << std::fixed << msVector << "s" RESET << std::endl;
 }
 
 void	PmergeMe::sortedContainers( void )
 {
 
-	this->_startTimeList = std::chrono::high_resolution_clock::now();
+	this->_startTimeList = clock();
 	this->_list = mergeSortContainers(this->_list);
-	this->_endTimeList = std::chrono::high_resolution_clock::now();
+	this->_endTimeList = clock();
 
-	this->_startTimeVector = std::chrono::high_resolution_clock::now();
+	this->_startTimeVector = clock();
 	this->_vector = mergeSortContainers(this->_vector);
-	this->_endTimeVector = std::chrono::high_resolution_clock::now();
+	this->_endTimeVector = clock();
 }
 
 PmergeMe::~PmergeMe()
