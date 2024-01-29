@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:10:16 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 02:49:39 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:27:01 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include "CustomInt.hpp"
 
 # define SIZE_LINE 50
-# define DISPLAY_PROCESS true
+# define DISPLAY_PROCESS false
 
 class RPN
 {

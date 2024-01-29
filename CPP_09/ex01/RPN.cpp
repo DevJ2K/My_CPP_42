@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:10:18 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 02:54:24 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:26:33 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ static void	doOperation(std::stack<CustomInt> & stack_a, std::stack<CustomInt> &
 		return (stack_a.push(CustomInt((nb_2 - nb_1), false)));
 	if (sign == '/')
 	{
-		if (nb_2 == 0)
+		if (nb_1 == 0)
 			throw RPN::DivisionByZeroException();
 		return (stack_a.push(CustomInt((nb_2 / nb_1), false)));
 	}
