@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 09:57:24 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 17:11:46 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:21:37 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,35 +39,6 @@ static bool	open_success( std::ifstream & file, std::string filename )
 	return (success);
 }
 
-static std::map<std::string, double>	get_data( const char * data_filename )
-{
-	std::ifstream					data_file;
-	std::map<std::string, double>	data;
-
-	data_file.open(data_filename);
-	if (open_success(data_file, data_filename) == 0)
-	{
-		if (data_file.is_open() == true)
-		{
-			data_file.close();
-			throw BitcoinExchange::BadFileException();
-		}
-	}
-	std::string	line;
-	while (std::getline(data_file, line))
-	{
-		if (line.compare("date,exchange_rate") == 0)
-			continue ;
-		double	fvalue;
-		std::istringstream iss(line.substr(11, line.length() - 10));
-		iss >> fvalue;
-		if (!iss.eof() || iss.fail())
-			throw BitcoinExchange::BadDataValueException();
-
-		data[line.substr(0, 10)] = fvalue;
-	}
-	return (data);
-}
 
 static bool	is_only_numbers( std::string str )
 {
@@ -93,7 +64,7 @@ static bool	check_date_format( std::string date )
 	iss_month >> month;
 	iss_day >> day;
 
-	if (date.substr(10) != " ")
+	if (date.length() > 10 && date.substr(10) != " ")
 		return (display_err("Invalid date format => " + date), false);
 
 	if ((!is_only_numbers(date.substr(0, 4))
@@ -124,9 +95,60 @@ static bool	check_value_range( std::string value )
 		return (display_err("Invalid number format => " + value), false);
 	if (nb < 0)
 		return (display_err("Not a positive number. Numbers need to be between 0 and 1000."), false);
-	if (nb < 0 || nb > 1000)
+	if (nb > 1000)
 		return (display_err("Too large a number. Numbers need to be between 0 and 1000."), false);
 	return (true);
+}
+
+static bool	check_data_value( std::string value )
+{
+	std::istringstream	iss(value);
+	double	nb;
+
+	iss >> nb;
+	if (!iss.eof() || iss.fail())
+		return (display_err("Invalid number format => " + value), false);
+	return (true);
+}
+
+static std::map<std::string, double>	get_data( const char * data_filename )
+{
+	std::ifstream					data_file;
+	std::map<std::string, double>	data;
+
+	data_file.open(data_filename);
+	if (open_success(data_file, data_filename) == 0)
+	{
+		if (data_file.is_open() == true)
+		{
+			data_file.close();
+			throw BitcoinExchange::BadFileException();
+		}
+	}
+	std::string	line;
+	while (std::getline(data_file, line))
+	{
+		if (line.compare("date,exchange_rate") == 0)
+			continue ;
+		else if (line.length() < 12)
+		{
+			display_err("bad input => " + line);
+			continue ;
+		}
+		else if (check_date_format(line.substr(0, 10)) == false)
+			continue ;
+
+		else if (check_data_value(line.substr(11)) == false)
+			continue ;
+		double	fvalue;
+		std::istringstream iss(line.substr(11));
+		iss >> fvalue;
+		if (!iss.eof() || iss.fail())
+			throw BitcoinExchange::BadDataValueException();
+
+		data[line.substr(0, 10)] = fvalue;
+	}
+	return (data);
 }
 
 BitcoinExchange::BitcoinExchange( const char * data_file, const char * input_filename )

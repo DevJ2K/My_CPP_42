@@ -6,7 +6,7 @@
 /*   By: tajavon <tajavon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:41:01 by tajavon           #+#    #+#             */
-/*   Updated: 2024/01/28 16:21:06 by tajavon          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:17:22 by tajavon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ int	main( int argc, char **argv )
 {
 	if (argc == 1)
 		return (display_err("missing input file."), 1);
-	if (std::strcmp(argv[1], "-F") == 0
-	|| std::strcmp(argv[1], "-files") == 0)
+	std::string flags = argv[1];
+	if (flags.compare("-F") == 0
+	|| flags.compare("-files") == 0)
 	{
 		for (int i = 2; i < argc; i++)
 		{
